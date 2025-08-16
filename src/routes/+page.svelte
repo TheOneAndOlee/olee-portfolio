@@ -3,7 +3,7 @@
     import '../app.css'
     import Sparkles from '$lib/components/ui/Sparkles/Sparkles.svelte';
     import Typewriter from 'svelte-typewriter';
-	import SideToc from '$lib/components/ui/SideTOC/SideTOC.svelte';
+	// import SideToc from '$lib/components/ui/SideTOC/SideTOC.svelte';
 
     // import { TypewriterEffect, TypewriterEffectSmooth } from '$lib/components/ui/TypewriterEffect';
 
