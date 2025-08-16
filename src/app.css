@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: 'geo-regular';
+    src: url('/fonts/Geo-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'geo-italic';
+    src: url('/fonts/Geo-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
