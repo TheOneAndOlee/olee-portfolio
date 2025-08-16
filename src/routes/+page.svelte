@@ -55,28 +55,15 @@
         {/if}
     </div>
 
-    <div class="py-8 grid grid-cols-5 gap-4">
-        <div class="col-span-1">
-            <SideToc entryList={["Intro", "About", "Projects", "Contact"]}></SideToc>
-            <p class="text-4xl flex w-full items-center justify-center text-center text-[#FCFFF9]"></p>
-        </div>
-        <div class="col-span-4 m-2">
-            <div id="Intro">
+    <div class="py-8">
+        <div class="px-12 m-2">
+            <div class="" id="Intro">
                 <p class="text-4xl flex w-full text-[#FCFFF9]">
                     I'm a student programmer who loves games, making them, and all things cool! 
                     I'm still pretty new to applied programming, but I'm learning more every day! <br> <br>
                 </p>
                 <p class="text-4xl py-8 flex w-full text-[#FCFFF9]">
                     If you want to know more about me, check out my blog over <a href="#about" class="hover:underline inline">here</a>.
-                </p>
-            </div>
-            <div id="About">
-                <p class="text-4xl flex w-full text-[#FCFFF9]">
-                    I'm a passionate developer with a love for creating immersive experiences through code. 
-                    My journey in programming has been fueled by curiosity and a desire to learn. <br> <br>
-                </p>
-                <p class="text-4xl py-8 flex w-full text-[#FCFFF9]">
-                    If you want to know more about my background and skills, feel free to explore my blog.
                 </p>
             </div>
         </div>
