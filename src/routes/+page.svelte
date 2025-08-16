@@ -7,7 +7,7 @@
 
     let showNext = false;
     let showIntro = false;
-    let showButtons = false
+    let showButtons = false;
 </script>
 
 <!-- For Credits:
