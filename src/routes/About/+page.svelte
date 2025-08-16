@@ -1,5 +1,5 @@
 <script>
-    import '../app.css'
+    import '../../app.css'
     import Sparkles from '$lib/components/ui/Sparkles/Sparkles.svelte';
     import Typewriter from 'svelte-typewriter';
     import CardHoverEffect from '$lib/components/ui/CardHoverEffect/CardHoverEffect.svelte';
@@ -13,7 +13,6 @@
 <!-- For Credits:
     Sparkles: https://aceternity.sveltekit.io/components/sparkles
     TypewriterEffect: https://www.npmjs.com/package/svelte-typewriter
-    CardHoverEffect: https://aceternity.sveltekit.io/components/card-hover-effect
 -->
 
 <!-- <Navbar /> -->
@@ -53,27 +52,22 @@
         </div>
 
         {#if showIntro}
-            <div class="flex-grow flex flex-col w-full text-[#FCFFF9] px-12 m-2" id="Intro" transition:fly={{delay:100, duration:300, x:0, y:100}} on:introend={() => showButtons = true}>
+            <div class="flex-grow flex w-full text-[#FCFFF9] px-12 m-2" id="Intro" transition:fly={{delay:100, duration:300, x:0, y:150}} on:introend={() => showButtons = true}>
                 <div>
-                    <p class="text-4xl w-full text-[#FCFFF9]">
+                    <p class="text-4xl text-[#FCFFF9]">
                         I'm a student programmer who loves games, making them, and all things cool! 
-                        I'm still pretty new to applied programming, but I'm learning more every day!
+                        I'm still pretty new to applied programming, but I'm learning more every day! <br> <br>
                     </p>
                 </div>
-                {#if showButtons}
-                    <div transition:fly={{delay:200, duration:300, x:0, y:100}}>
-                        <CardHoverEffect
-                            items={[
-                                    {title: "About me", description: "A little about me!", link: "/About"},
-                                    {title: "My Projects", description: "Showing off some of the work I've done!", link:"/Projects"},
-                                    {title: "Contact", description: "Getting in touch with me!", link:"/Contact"}
-                                ]} 
-                            >
-                        </CardHoverEffect>
-                    </div>
-                {/if}   
             </div>
+            {#if showButtons}
+                <div></div>
+            {/if}
         {/if}
 
+
+    </div>
+    <div class="h-screen py-8 px-12 m-2 w-full text-[#FCFFF9]" id="About">
+        <p class="text-8xl py-8 justify-center items-center text-center">About Me</p>
     </div>
 </div>

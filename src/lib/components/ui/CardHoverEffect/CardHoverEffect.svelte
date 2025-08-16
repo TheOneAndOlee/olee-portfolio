@@ -34,10 +34,10 @@
 							transition: { duration: 0.15, delay: 0.1 }
 						}}
 					>
-						<span>
+						<span
 							use:motion
 							class="absolute inset-0 block h-full w-full rounded-3xl bg-neutral-200 dark:bg-slate-800/[0.8]"
-						</span>
+						></span>
 					</Motion>
 				{/if}
 			</AnimatePresence>
@@ -49,10 +49,10 @@
 			>
 				<div class="relative z-50">
 					<div class="p-4">
-						<h4 class={cn('mt-4 font-bold tracking-wide text-zinc-100', className)}>
+						<h4 class={cn('mt-2 font-bold text-4xl tracking-wide text-[#FCFFF9]', className)}>
 							{item.title}
 						</h4>
-						<p class={cn('mt-8 text-sm leading-relaxed tracking-wide text-zinc-400', className)}>
+						<p class={cn('mt-4 text-sm leading-relaxed tracking-wide text-zinc-400', className)}>
 							{item.description}
 						</p>
 					</div>
