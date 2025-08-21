@@ -14,6 +14,9 @@
     Sparkles: https://aceternity.sveltekit.io/components/sparkles
     TypewriterEffect: https://www.npmjs.com/package/svelte-typewriter
     CardHoverEffect: https://aceternity.sveltekit.io/components/card-hover-effect
+
+    Geo Font: https://fonts.google.com/specimen/Geo
+    Atkinson Hyperlegible Next:  https://fonts.google.com/specimen/Atkinson+Hyperlegible+Next
 -->
 
 <!-- <Navbar /> -->
