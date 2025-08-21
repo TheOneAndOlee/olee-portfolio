@@ -21,8 +21,7 @@
 
 <!-- <Navbar /> -->
 
-<div class="relative w-full bg-[#070809] text-[#FCFFF9]"
-    style="font-family: 'geo-regular', sans-serif;">
+<div class="relative w-full bg-[#070809] text-[#FCFFF9]">
     <Sparkles
         minSize={0.8}
         maxSize={2}
@@ -31,7 +30,8 @@
         className="absolute inset-0 w-full h-full pointer-events-none"
     />
     <div class="h-screen flex flex-col">
-        <div class="py-8">
+        <div class="py-8"
+            style="font-family: 'geo-regular', sans-serif;">
             <Typewriter 
                 mode="cascade" 
                 interval={50} 
@@ -56,7 +56,11 @@
         </div>
 
         {#if showIntro}
-            <div class="flex-grow flex flex-col w-full text-[#FCFFF9] px-12 m-2" id="Intro" transition:fly={{delay:100, duration:300, x:0, y:100}} on:introend={() => showButtons = true}>
+            <div class="flex-grow flex flex-col w-full text-[#FCFFF9] px-12 m-2" id="Intro" 
+                transition:fly={{delay:100, duration:300, x:0, y:100}} 
+                on:introend={() => showButtons = true}
+                style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
+            >
                 <div>
                     <p class="text-4xl w-full text-[#FCFFF9]">
                         I'm a student programmer who loves games, making them, and all things cool! 
