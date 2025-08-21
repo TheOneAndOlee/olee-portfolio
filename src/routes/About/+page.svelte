@@ -4,10 +4,8 @@
     import Typewriter from 'svelte-typewriter';
 	import { fly } from 'svelte/transition';
 
-    let showFirst = false;
-    let showSecond = false;
-    let showThird = false;
-    let showButtons = false;
+    let showText = false;
+    let showImage = false;
 </script>
 
 <!-- For Credits:
@@ -33,35 +31,40 @@
                 interval={25} 
                 keepCursorOnFinish={false} 
                 cursor={false}
-                on:done={() => showFirst = true}
+                on:done={() => showImage = true}
             >
                 <p class="text-8xl justify-center text-center flex items-center w-full text-[#FCFFF9]">About Me!</p>
             </Typewriter>
         </div>
 
-        {#if showFirst}
-            <div class="flex-grow flex flex-col-4 w-full text-[#FCFFF9] px-12 m-2">
-                <div class="col-span-1" transition:fly={{delay:100, duration:300, x:-100, y:0}}>
+            <div class="flex-grow grid grid-cols-5 w-full text-[#FCFFF9] px-12 m-2">
+                {#if showImage}
+                <div class="col-span-1" transition:fly={{delay:250, duration:300, x:-100, y:0}} on:introend={() => showText = true}>
                     <enhanced:img 
-                        class="relative z-50 w-96 h-96 md:w-96 md:h-96 object-cover rounded-xl" 
+                        class="relative z-50 w-full h-auto object-cover rounded-xl" 
                         src="/src/lib/assets/betterHeadshot.webp" 
                         sizes="(min-width: 640px) 768px, (min-width: 1920px) 1280px, (min-width-1080) 640px" 
                         alt="An alright pic of me!" 
                     />
                 </div>
-                <div class="col-span-3 px-8 transition:fly={{delay:300, duration:300, x:-100, y:0}} on:introend={() => showButtons = true}">
-                    <p class="text-4xl text-[#FCFFF9]">
-                        I'm Osmond Lee, a Computer Science major with a Game Studies and Design minor at the University of Illinois Urbana Champaign (UIUC).
-                    </p>
-                    <p class="text-4xl py-8 text-[#FCFFF9]">
-                        I love the idea of "invisible design" in the games and softwares I use.
-                    </p>
-                    <p class="text-4xl text-[#FCFFF9]">
-                        That's why I'm obsessed with the "feel" of a game, and why I want to make games that feel good to play.
-                    </p>
+                {/if}
+
+                <div class="col-span-4 px-8">
+                    {#if showText} 
+                    <div transition:fly={{delay:0, duration:300, x:-100, y:0}}>
+                        <p class="text-4xl text-[#FCFFF9]">
+                            I'm Osmond Lee, a Computer Science major with a Game Studies and Design minor at the University of Illinois Urbana Champaign (UIUC).
+                        </p>
+                        <p class="text-4xl py-8 text-[#FCFFF9]">
+                            I've grown up playing games my whole life, and I've come to appreciate what I call "invisible design" in the media I consume.
+                        </p>
+                        <p class="text-4xl text-[#FCFFF9]">
+                            In no small part due to my history with and love for games, my dream is to make my own games/media that combine my passion for programming with my love for invisible design.
+                        </p>
+                    </div>
+                    {/if}
                 </div>
             </div>
-        {/if}
 
 
     </div>
