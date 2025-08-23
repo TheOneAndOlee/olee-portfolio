@@ -39,6 +39,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/" | "/About" | "/Contact" | "/Projects";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/fonts/Geo-Italic.woff2" | "/fonts/Geo-Regular.woff2" | "/robots.txt";
+		Asset(): "/fonts/Atkinson-Hyperlegible-Next-Italic.woff2" | "/fonts/Atkinson-Hyperlegible-Next.woff2" | "/fonts/Geo-Italic.woff2" | "/fonts/Geo-Regular.woff2" | "/robots.txt";
 	}
 }

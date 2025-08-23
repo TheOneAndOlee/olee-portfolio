@@ -4,10 +4,28 @@
     import Typewriter from 'svelte-typewriter';
     import CardHoverEffect from '$lib/components/ui/CardHoverEffect/CardHoverEffect.svelte';
 	import { fly } from 'svelte/transition';
+	import { onMount } from 'svelte';
 
     let showNext = false;
     let showIntro = false;
     let showButtons = false;
+    let sparkleCount = 0;
+
+    onMount(() => {
+        function updateSparkleCount() {
+            sparkleCount = Math.round(window.innerWidth * 0.1);
+        }
+
+        updateSparkleCount();
+        window.addEventListener('resize', updateSparkleCount);
+
+        return () => {
+            window.removeEventListener('resize', updateSparkleCount);
+        };
+    });
+
+
+
 </script>
 
 <!-- For Credits:
@@ -26,7 +44,7 @@
         minSize={0.8}
         maxSize={2}
         speed={3}
-        particleDensity={300}
+        particleDensity={sparkleCount}
         className="absolute inset-0 w-full h-full pointer-events-none"
     />
     <div class="h-screen flex flex-col">
@@ -63,6 +81,7 @@
             >
                 <div>
                     <p class="text-4xl w-full text-[#FCFFF9]">
+                        {window.innerWidth}
                         I'm a student programmer who loves games, making them, and all things cool! 
                         I'm still pretty new to applied programming, but I'm learning more every day!
                     </p>
