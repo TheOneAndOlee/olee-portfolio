@@ -6,7 +6,7 @@
 
     import { onMount } from 'svelte';
 
-    import PinContainer from '$lib/components/ui/ThreeDPin/PinContainer.svelte';
+    
 
     let sparkleCount = 0;
 
@@ -56,19 +56,10 @@
                 <p class="text-8xl justify-center text-center flex items-center w-full text-[#FCFFF9]">Contact Me!</p>
             </Typewriter>
 
-            <div class="flex-grow w-full"
+            <div class="flex flex-grow w-full items-center justify-center"
                 style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
             >
-                <PinContainer
-                    title="LinkedIn"
-                    href="https://www.linkedin.com/in/olee10"
-                    className="inline-block"
-                    containerClassName="inline-block"
-                >
-                    <enhanced:img src="/src/lib/assets/linkedIn.webp" 
-                        alt="LinkedIn Icon" 
-                        style="width:100%;height:auto; display:block;"/>
-                </PinContainer>
+
             </div>
         </div>
 
