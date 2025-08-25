@@ -56,10 +56,35 @@
                 <p class="text-8xl justify-center text-center flex items-center w-full text-[#FCFFF9]">Contact Me!</p>
             </Typewriter>
 
-            <div class="flex-grow w-full"
+            <div class="flex-grow flex justify-center items-center"
                 style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
             >
-                
+                <PinContainer
+                    title="LinkedIn"
+                    href="https://www.linkedin.com/in/olee10"
+                    className="inline-block"
+                    containerClassName="inline-block"
+                >
+                    <enhanced:img src="/src/lib/assets/linkedIn.webp" 
+                        alt="LinkedIn Icon" 
+                        class="w-full h-auto block"/>
+
+                    <p class="w-full text-center justify-center text-[#FCFFF9]">Connect with me!</p>
+                </PinContainer>
+
+                <PinContainer
+                    title="Github"
+                    href="https://github.com/TheOneAndOlee"
+                    className="inline-block"
+                    containerClassName="inline-block bg-[#FCFFF9]"
+                >
+                    <enhanced:img src="/src/lib/assets/Github.png" 
+                        alt="Github Icon" 
+                        class="w-full h-auto block"
+                    />
+                    
+                    <p class="w-full text-center justify-center text-[#FCFFF9]">Look at my code!</p>
+                </PinContainer>
             </div>
         </div>
 
