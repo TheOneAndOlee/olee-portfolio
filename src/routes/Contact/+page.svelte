@@ -59,16 +59,7 @@
             <div class="flex-grow w-full"
                 style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
             >
-                <PinContainer
-                    title="LinkedIn"
-                    href="https://www.linkedin.com/in/olee10"
-                    className="inline-block"
-                    containerClassName="inline-block"
-                >
-                    <enhanced:img src="/src/lib/assets/linkedIn.webp" 
-                        alt="LinkedIn Icon" 
-                        style="width:100%;height:auto; display:block;"/>
-                </PinContainer>
+                
             </div>
         </div>
 
