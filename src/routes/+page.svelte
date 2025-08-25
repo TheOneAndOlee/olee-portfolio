@@ -32,6 +32,7 @@
     Sparkles: https://aceternity.sveltekit.io/components/sparkles
     TypewriterEffect: https://www.npmjs.com/package/svelte-typewriter
     CardHoverEffect: https://aceternity.sveltekit.io/components/card-hover-effect
+    3D Pin: https://aceternity.sveltekit.io/components/3d-pin
 
     Geo Font: https://fonts.google.com/specimen/Geo
     Atkinson Hyperlegible Next:  https://fonts.google.com/specimen/Atkinson+Hyperlegible+Next
@@ -81,7 +82,6 @@
             >
                 <div>
                     <p class="text-4xl w-full text-[#FCFFF9]">
-                        {window.innerWidth}
                         I'm a student programmer who loves games, making them, and all things cool! 
                         I'm still pretty new to applied programming, but I'm learning more every day!
                     </p>

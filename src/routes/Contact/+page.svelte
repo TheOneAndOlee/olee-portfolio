@@ -4,6 +4,25 @@
     import Typewriter from 'svelte-typewriter';
 	import { fly } from 'svelte/transition';
 
+    import { onMount } from 'svelte';
+
+    import PinContainer from '$lib/components/ui/ThreeDPin/PinContainer.svelte';
+
+    let sparkleCount = 0;
+
+    onMount(() => {
+        function updateSparkleCount() {
+            sparkleCount = Math.round(window.innerWidth * 0.1);
+        }
+
+        updateSparkleCount();
+        window.addEventListener('resize', updateSparkleCount);
+
+        return () => {
+            window.removeEventListener('resize', updateSparkleCount);
+        };
+    });
+
     let showLinks = false;
 </script>
 
@@ -20,11 +39,11 @@
         minSize={0.8}
         maxSize={2}
         speed={3}
-        particleDensity={300}
+        particleDensity={sparkleCount}
         className="absolute inset-0 w-full h-full pointer-events-none"
     />
 
-        <div class="py-8"
+        <div class="py-8 h-screen"
             style="font-family: 'geo-regular', sans-serif;"
         >
             <Typewriter 
@@ -36,12 +55,21 @@
             >
                 <p class="text-8xl justify-center text-center flex items-center w-full text-[#FCFFF9]">Contact Me!</p>
             </Typewriter>
-        </div>
 
-        <div class=""
-            style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
-        >
-            
+            <div class="flex-grow w-full"
+                style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
+            >
+                <PinContainer
+                    title="LinkedIn"
+                    href="https://www.linkedin.com/in/olee10"
+                    className="inline-block"
+                    containerClassName="inline-block"
+                >
+                    <enhanced:img src="/src/lib/assets/linkedIn.webp" 
+                        alt="LinkedIn Icon" 
+                        style="width:100%;height:auto; display:block;"/>
+                </PinContainer>
+            </div>
         </div>
 
         <!-- TODO 
