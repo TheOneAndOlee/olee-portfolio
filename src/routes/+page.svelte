@@ -4,16 +4,35 @@
     import Typewriter from 'svelte-typewriter';
     import CardHoverEffect from '$lib/components/ui/CardHoverEffect/CardHoverEffect.svelte';
 	import { fly } from 'svelte/transition';
+	import { onMount } from 'svelte';
 
     let showNext = false;
     let showIntro = false;
     let showButtons = false;
+    let sparkleCount = 0;
+
+    onMount(() => {
+        function updateSparkleCount() {
+            sparkleCount = Math.round(window.innerWidth * 0.1);
+        }
+
+        updateSparkleCount();
+        window.addEventListener('resize', updateSparkleCount);
+
+        return () => {
+            window.removeEventListener('resize', updateSparkleCount);
+        };
+    });
+
+
+
 </script>
 
 <!-- For Credits:
     Sparkles: https://aceternity.sveltekit.io/components/sparkles
     TypewriterEffect: https://www.npmjs.com/package/svelte-typewriter
     CardHoverEffect: https://aceternity.sveltekit.io/components/card-hover-effect
+    3D Pin: https://aceternity.sveltekit.io/components/3d-pin
 
     Geo Font: https://fonts.google.com/specimen/Geo
     Atkinson Hyperlegible Next:  https://fonts.google.com/specimen/Atkinson+Hyperlegible+Next
@@ -21,17 +40,17 @@
 
 <!-- <Navbar /> -->
 
-<div class="relative w-full bg-[#070809] text-[#FCFFF9]"
-    style="font-family: 'geo-regular', sans-serif;">
+<div class="relative w-full bg-[#070809] text-[#FCFFF9]">
     <Sparkles
         minSize={0.8}
         maxSize={2}
         speed={3}
-        particleDensity={300}
+        particleDensity={sparkleCount}
         className="absolute inset-0 w-full h-full pointer-events-none"
     />
     <div class="h-screen flex flex-col">
-        <div class="py-8">
+        <div class="py-8"
+            style="font-family: 'geo-regular', sans-serif;">
             <Typewriter 
                 mode="cascade" 
                 interval={50} 
@@ -56,7 +75,11 @@
         </div>
 
         {#if showIntro}
-            <div class="flex-grow flex flex-col w-full text-[#FCFFF9] px-12 m-2" id="Intro" transition:fly={{delay:100, duration:300, x:0, y:100}} on:introend={() => showButtons = true}>
+            <div class="flex-grow flex flex-col w-full text-[#FCFFF9] px-12 m-2" id="Intro" 
+                transition:fly={{delay:100, duration:300, x:0, y:100}} 
+                on:introend={() => showButtons = true}
+                style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
+            >
                 <div>
                     <p class="text-4xl w-full text-[#FCFFF9]">
                         I'm a student programmer who loves games, making them, and all things cool! 
