@@ -3,9 +3,11 @@
     import Sparkles from '$lib/components/ui/Sparkles/Sparkles.svelte';
     import Typewriter from 'svelte-typewriter';
 	import { fly } from 'svelte/transition';
+    import CardHoverEffect from '$lib/components/ui/CardHoverEffect/CardHoverEffect.svelte';
 
     let showText = false;
     let showImage = false;
+    let showButtons = false;
 </script>
 
 <!-- For Credits:
@@ -53,7 +55,7 @@
 
             <div class="col-span-4 px-8">
                 {#if showText} 
-                <div transition:fly={{delay:0, duration:300, x:-100, y:0}}>
+                <div transition:fly={{delay:0, duration:300, x:-100, y:0}} on:introend={() => showButtons = true}>
                     <p class="text-3xl text-[#FCFFF9]">
                         I'm Osmond Lee, a Computer Science major with a Game Studies and Design minor at the University of Illinois Urbana Champaign (UIUC).
                     </p>
@@ -63,6 +65,20 @@
                     <p class="text-3xl text-[#FCFFF9]">
                         In no small part due to my history with and love for games, my dream is to make my own games/media that combine my passion for programming with my love for invisible design.
                     </p>
+                </div>
+                {/if}
+
+                {#if showButtons}
+                    <div class="mx-8" 
+                    transition:fly={{delay:200, duration:500, x:-300, y:0}}>
+                    <CardHoverEffect
+                        items={[
+                                {title: "Contact", description: "Getting in touch with me!", link: "/Contact"},
+                                {title: "Back Home", description: "Back to the introduction!", link:"../"},
+                                {title: "Projects", description: "Learn more about my work!", link:"/Projects"}
+                            ]} 
+                        >
+                    </CardHoverEffect>
                 </div>
                 {/if}
             </div>
