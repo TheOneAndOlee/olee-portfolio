@@ -67,23 +67,24 @@
                 >
                     <enhanced:img src="/src/lib/assets/linkedIn.webp" 
                         alt="LinkedIn Icon" 
-                        class="w-full h-auto block"/>
+                        class="w-full h-auto block"
+                    />
 
-                    <p class="w-full text-center justify-center text-[#FCFFF9]">Connect with me!</p>
+                    <p class="absolute bottom-[-24px] w-full text-center justify-center text-[#FCFFF9] text-2xl">Connect with me!</p>
                 </PinContainer>
 
                 <PinContainer
                     title="Github"
                     href="https://github.com/TheOneAndOlee"
                     className="inline-block"
-                    containerClassName="inline-block bg-[#FCFFF9]"
+                    containerClassName="inline-block"
                 >
-                    <enhanced:img src="/src/lib/assets/Github.png" 
+                    <enhanced:img src="/src/lib/assets/github.png" 
                         alt="Github Icon" 
-                        class="w-full h-auto block"
-                    />
+                        class="w-full h-auto block rounded-xl bg-[#FCFFF9]"
+                    /> 
                     
-                    <p class="w-full text-center justify-center text-[#FCFFF9]">Look at my code!</p>
+                    <p class="absolute bottom-[-24px] mx-auto w-full text-center justify-center text-[#FCFFF9] text-2xl">Look at my code!</p>
                 </PinContainer>
             </div>
         </div>

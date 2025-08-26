@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { Color } from 'sharp';
 	import { cn } from '../../../utils/cn';
 	import PinPerspective from './PinPerspective.svelte';
 
@@ -7,6 +6,8 @@
 	export let href: string | undefined;
 	export let className: string | undefined = undefined;
 	export let containerClassName: string | undefined = undefined;
+	export let width: string = '320px';
+	export let height: string = '320px';
 
 	let transform = 'translate(-50%,-50%) rotateX(0deg)';
 
@@ -30,8 +31,8 @@
 		class="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
 	>
 		<div
-			style={`transform: ${transform};`}
-			class="absolute left-1/2 top-1/2 flex items-start justify-start overflow-hidden rounded-2xl border border-[#FCFFF9]/[0.2] bg-[#070809] p-4 shadow-[0_8px_16px_rgb(0_0_0/0.4)] transition duration-700 group-hover/pin:border-white/[0.2]"
+			style={`transform: ${transform}; width: ${width}; height: ${height};`}
+			class="absolute left-1/2 top-1/2 flex items-start justify-start overflow-hidden rounded-3xl border-2 border-[#FCFFF9]/[0.2] bg-[#070809] p-8 shadow-[0_16px_32px_rgb(0_0_0/0.4)] transition duration-700 group-hover/pin:border-white/[0.2]"
 		>
 			<div class={cn(' relative z-50 ', className)}><slot /></div>
 		</div>
