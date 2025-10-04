@@ -38,14 +38,7 @@
 
 <!-- <Navbar /> -->
 
-<div class="relative w-full bg-[#070809] text-[#FCFFF9]">
-    <Sparkles
-        minSize={0.8}
-        maxSize={2}
-        speed={3}
-        particleDensity={sparkleCount}
-        className="absolute inset-0 w-full h-full pointer-events-none"
-    />
+<div class="relative w-full text-[#FCFFF9]">
     <div class="h-screen flex flex-col">
         <div class="py-8"
             style="font-family: 'geo-regular', sans-serif;">

@@ -35,79 +35,72 @@
 
 <!-- <Navbar /> -->
 
-<div class="relative w-full bg-[#070809] text-[#FCFFF9]"
+<div class="relative w-full text-[#FCFFF9]"
     style="font-family: 'geo-regular', sans-serif;">
-    <Sparkles
-        minSize={0.8}
-        maxSize={2}
-        speed={3}
-        particleDensity={sparkleCount}
-        className="absolute inset-0 w-full h-full pointer-events-none"
-    />
 
-        <div class="py-8 h-screen"
-            style="font-family: 'geo-regular', sans-serif;"
+    <div class="py-8 h-screen"
+        style="font-family: 'geo-regular', sans-serif;"
+    >
+        <Typewriter 
+            mode="cascade" 
+            interval={25} 
+            keepCursorOnFinish={false} 
+            cursor={false}
+            on:done={() => showLinks = true}
         >
-            <Typewriter 
-                mode="cascade" 
-                interval={25} 
-                keepCursorOnFinish={false} 
-                cursor={false}
-                on:done={() => showLinks = true}
+            <p class="text-8xl justify-center text-center flex items-center w-full text-[#FCFFF9]">Contact Me!</p>
+        </Typewriter>
+
+        {#if showLinks}
+        <div class="flex-grow flex justify-center items-center"
+            style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
+            transition:fly={{delay:300, duration:300, x:0, y:150}}
+            on:introend={() => showButtons = true}
+        >
+            <PinContainer
+                title="LinkedIn"
+                href="https://www.linkedin.com/in/olee10"
+                className="inline-block"
+                containerClassName="inline-block"
             >
-                <p class="text-8xl justify-center text-center flex items-center w-full text-[#FCFFF9]">Contact Me!</p>
-            </Typewriter>
+                <enhanced:img src="/src/lib/assets/linkedIn.webp" 
+                    alt="LinkedIn Icon" 
+                    class="w-full h-auto block"
+                />
 
-            {#if showLinks}
-            <div class="flex-grow flex justify-center items-center"
-                style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
-                transition:fly={{delay:300, duration:300, x:0, y:150}}
-                on:introend={() => showButtons = true}
+                <p class="absolute bottom-[-24px] w-full text-center justify-center text-[#FCFFF9] text-2xl">Connect with me!</p>
+            </PinContainer>
+
+            <PinContainer
+                title="Github"
+                href="https://github.com/TheOneAndOlee"
+                className="inline-block"
+                containerClassName="inline-block"
             >
-                <PinContainer
-                    title="LinkedIn"
-                    href="https://www.linkedin.com/in/olee10"
-                    className="inline-block"
-                    containerClassName="inline-block"
-                >
-                    <enhanced:img src="/src/lib/assets/linkedIn.webp" 
-                        alt="LinkedIn Icon" 
-                        class="w-full h-auto block"
-                    />
-
-                    <p class="absolute bottom-[-24px] w-full text-center justify-center text-[#FCFFF9] text-2xl">Connect with me!</p>
-                </PinContainer>
-
-                <PinContainer
-                    title="Github"
-                    href="https://github.com/TheOneAndOlee"
-                    className="inline-block"
-                    containerClassName="inline-block"
-                >
-                    <enhanced:img src="/src/lib/assets/github-fixed.png" 
-                        alt="Github Icon" 
-                        class="w-[full] h-auto block rounded-xl bg-[#FCFFF9]"
-                    /> 
-                    
-                    <p class="absolute bottom-[-30px] mx-auto w-full text-center justify-center text-[#FCFFF9] text-2xl">Look at my code!</p>
-                </PinContainer>
-            </div>
-            {/if}
-
-            {#if showButtons}
-                <div class="mx-8" 
-                    transition:fly={{delay:200, duration:300, x:0, y:100}}>
-                    <CardHoverEffect
-                        items={[
-                                {title: "About me", description: "A little about me!", link: "/About"},
-                                {title: "Back Home", description: "Back to the introduction!", link:"../"},
-                                {title: "Projects", description: "Learn more about my work!", link:"/Projects"}
-                            ]} 
-                        >
-                    </CardHoverEffect>
-                </div>
-            {/if}
+                <enhanced:img src="/src/lib/assets/github-fixed.png" 
+                    alt="Github Icon" 
+                    class="w-[full] h-auto block rounded-xl bg-[#FCFFF9]"
+                /> 
+                
+                <p class="absolute bottom-[-30px] mx-auto w-full text-center justify-center text-[#FCFFF9] text-2xl">Look at my code!</p>
+            </PinContainer>
         </div>
+        {/if}
+
+        {#if showButtons}
+            <div class="mx-8" 
+                transition:fly={{delay:200, duration:300, x:0, y:100}}>
+                <CardHoverEffect
+                    items={[
+                            {title: "About me", description: "A little about me!", link: "/About"},
+                            {title: "Back Home", description: "Back to the introduction!", link:"../"},
+                            {title: "Projects", description: "Learn more about my work!", link:"/Projects"}
+                        ]} 
+                    >
+                </CardHoverEffect>
+            </div>
+        {/if}
+    </div>
 
         <!-- TODO 
             1. Find carousel effect, or a list of buttons for different contacts

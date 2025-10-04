@@ -43,16 +43,16 @@
 			</AnimatePresence>
 			<div
 				class={cn(
-					'relative z-20 h-full w-full overflow-hidden rounded-2xl border border-transparent bg-black p-4 group-hover:border-slate-700 dark:border-white/[0.2]',
+					'relative z-20 h-full w-full overflow-hidden rounded-2xl border border-transparent bg-[#4BF0FC] p-4 group-hover:border-slate-700 dark:border-white/[0.2]',
 					className
 				)}
 			>
 				<div class="relative z-50">
 					<div class="p-4">
-						<h4 class={cn('mt-2 font-bold text-4xl tracking-wide text-[#FCFFF9]', className)}>
+						<h4 class={cn('mt-2 font-bold text-4xl tracking-wide text-[#121314]', className)}>
 							{item.title}
 						</h4>
-						<p class={cn('mt-4 text-sm leading-relaxed tracking-wide text-zinc-400', className)}>
+						<p class={cn('mt-4 text-sm leading-relaxed tracking-wide text-[#121314]', className)}>
 							{item.description}
 						</p>
 					</div>
