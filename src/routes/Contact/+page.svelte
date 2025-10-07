@@ -4,10 +4,10 @@
     import Typewriter from 'svelte-typewriter';
 	import { fly } from 'svelte/transition';
     import CardHoverEffect from '$lib/components/ui/CardHoverEffect/CardHoverEffect.svelte';
-
     import { onMount } from 'svelte';
 
     import PinContainer from '$lib/components/ui/ThreeDPin/PinContainer.svelte';
+	import CoolButton from '$lib/components/ui/CoolButton/CoolButton.svelte';
 
     let sparkleCount = 0;
     let showButtons = false;
@@ -57,33 +57,15 @@
             transition:fly={{delay:300, duration:300, x:0, y:150}}
             on:introend={() => showButtons = true}
         >
-            <PinContainer
-                title="LinkedIn"
-                href="https://www.linkedin.com/in/olee10"
-                className="inline-block"
-                containerClassName="inline-block"
-            >
-                <enhanced:img src="/src/lib/assets/linkedIn.webp" 
-                    alt="LinkedIn Icon" 
-                    class="w-full h-auto block"
-                />
+            <CoolButton 
+                text = "Check out my (public) code!"
+                imgSrc = "/src/lib/assets/github-fixed.png"
+            />
 
-                <p class="absolute bottom-[-24px] w-full text-center justify-center text-[#FCFFF9] text-2xl">Connect with me!</p>
-            </PinContainer>
-
-            <PinContainer
-                title="Github"
-                href="https://github.com/TheOneAndOlee"
-                className="inline-block"
-                containerClassName="inline-block"
-            >
-                <enhanced:img src="/src/lib/assets/github-fixed.png" 
-                    alt="Github Icon" 
-                    class="w-[full] h-auto block rounded-xl bg-[#FCFFF9]"
-                /> 
-                
-                <p class="absolute bottom-[-30px] mx-auto w-full text-center justify-center text-[#FCFFF9] text-2xl">Look at my code!</p>
-            </PinContainer>
+            <CoolButton 
+                text = "Connect with me!"
+                imgSrc = "/src/lib/assets/linkedIn.webp"
+            />
         </div>
         {/if}
 
