@@ -1,12 +1,9 @@
 <script>
     import '../../app.css'
-    import Sparkles from '$lib/components/ui/Sparkles/Sparkles.svelte';
     import Typewriter from 'svelte-typewriter';
 	import { fly } from 'svelte/transition';
-    import CardHoverEffect from '$lib/components/ui/CardHoverEffect/CardHoverEffect.svelte';
     import { onMount } from 'svelte';
 
-    import PinContainer from '$lib/components/ui/ThreeDPin/PinContainer.svelte';
 	import CoolButton from '$lib/components/ui/CoolButton/CoolButton.svelte';
 
     let sparkleCount = 0;
@@ -52,7 +49,7 @@
         </Typewriter>
 
         {#if showLinks}
-        <div class="flex-grow flex justify-center items-center"
+        <div class="flex-grow py-16 flex flex-col justify-center items-center gap-8"
             style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
             transition:fly={{delay:300, duration:300, x:0, y:150}}
             on:introend={() => showButtons = true}
@@ -60,16 +57,18 @@
             <CoolButton 
                 text = "Check out my (public) code!"
                 imgSrc = "/src/lib/assets/github-fixed.png"
+                href = "https://github.com/TheOneAndOlee"
             />
 
             <CoolButton 
                 text = "Connect with me!"
                 imgSrc = "/src/lib/assets/linkedIn.webp"
+                href = "https://www.linkedin.com/in/olee10"
             />
         </div>
         {/if}
 
-        {#if showButtons}
+        <!-- {#if showButtons}
             <div class="mx-8" 
                 transition:fly={{delay:200, duration:300, x:0, y:100}}>
                 <CardHoverEffect
@@ -81,7 +80,7 @@
                     >
                 </CardHoverEffect>
             </div>
-        {/if}
+        {/if} -->
     </div>
 
         <!-- TODO 
