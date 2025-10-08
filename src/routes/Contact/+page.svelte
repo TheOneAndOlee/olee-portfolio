@@ -58,12 +58,14 @@
                 text = "Check out my (public) code!"
                 imgSrc = "/src/lib/assets/github-fixed.png"
                 href = "https://github.com/TheOneAndOlee"
+                invert = {1.0}
             />
 
             <CoolButton 
                 text = "Connect with me!"
                 imgSrc = "/src/lib/assets/linkedIn.webp"
                 href = "https://www.linkedin.com/in/olee10"
+                invert = {0.0}
             />
         </div>
         {/if}

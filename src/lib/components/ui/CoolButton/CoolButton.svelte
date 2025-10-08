@@ -22,14 +22,13 @@
   // svelte-ignore unused-export-let  
   export let borderColor = Colors.ButtonGold;
 
-  // svelte-ignore unused-export-let  
-  export let opacity = 0.0;
+  export let invert = 1.0;
 </script>
 
 <a 
   href= "{href}" target="_blank"
   class="glowing-btn" 
-  style="--text-color: {textColor}; --border-color: {borderColor}; --opacity: {opacity};"
+  style="--text-color: {textColor}; --border-color: {borderColor}; --invert: {invert};"
 >
   <span class="border-span"></span>
   <span class="border-span"></span>
@@ -78,7 +77,7 @@
 
   /* Invert icon color on hover for better contrast */
   .glowing-btn:hover .btn-icon {
-    filter: invert(var(--opacity));
+    filter: invert(var(--invert));
   }
 
   .border-span {
