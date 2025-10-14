@@ -28,7 +28,7 @@
 <a 
   href= "{href}" target="_blank"
   class="glowing-btn" 
-  style="--text-color: {textColor}; --border-color: {borderColor}; --invert: {invert};"
+  style="--text-color: {textColor}; --border-color: {borderColor}; --invert: {invert}; font-family: 'atkinson-hyperlegible-next', sans-serif;"
 >
   <span class="border-span"></span>
   <span class="border-span"></span>
@@ -73,12 +73,13 @@
     height: 1.2em; /* Set height relative to font size */
     width: auto;
     transition: filter 0.3s ease;
+    filter: invert(var(--invert));
   }
 
   /* Invert icon color on hover for better contrast */
-  .glowing-btn:hover .btn-icon {
+  /* .glowing-btn:hover .btn-icon {
     filter: invert(var(--invert));
-  }
+  } */
 
   .border-span {
     position: absolute;
