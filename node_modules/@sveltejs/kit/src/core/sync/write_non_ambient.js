@@ -66,10 +66,21 @@ function generate_app_types(manifest_data) {
 			dynamic_routes.push(route_type);
 
 			const pathname = remove_group_segments(route.id);
-			pathnames.add(`\`${replace_required_params(replace_optional_params(pathname))}\` & {}`);
+			const replaced_pathname = replace_required_params(replace_optional_params(pathname));
+			pathnames.add(`\`${replaced_pathname}\` & {}`);
+
+			if (pathname !== '/') {
+				// Support trailing slash
+				pathnames.add(`\`${replaced_pathname + '/'}\` & {}`);
+			}
 		} else {
 			const pathname = remove_group_segments(route.id);
 			pathnames.add(s(pathname));
+
+			if (pathname !== '/') {
+				// Support trailing slash
+				pathnames.add(s(pathname + '/'));
+			}
 		}
 
 		/** @type {Map<string, boolean>} */
@@ -91,6 +102,8 @@ function generate_app_types(manifest_data) {
 		layouts.push(layout_type);
 	}
 
+	const assets = manifest_data.assets.map((asset) => s('/' + asset.file));
+
 	return [
 		'declare module "$app/types" {',
 		'\texport interface AppTypes {',
@@ -99,7 +112,7 @@ function generate_app_types(manifest_data) {
 		`\t\tLayoutParams(): {\n\t\t\t${layouts.join(';\n\t\t\t')}\n\t\t};`,
 		`\t\tPathname(): ${Array.from(pathnames).join(' | ')};`,
 		'\t\tResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes[\'Pathname\']>}`;',
-		`\t\tAsset(): ${manifest_data.assets.map((asset) => s('/' + asset.file)).join(' | ') || 'never'};`,
+		`\t\tAsset(): ${assets.concat('string & {}').join(' | ')};`,
 		'\t}',
 		'}'
 	].join('\n');

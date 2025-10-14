@@ -37,8 +37,8 @@ declare module "$app/types" {
 			"/Contact": Record<string, never>;
 			"/Projects": Record<string, never>
 		};
-		Pathname(): "/" | "/About" | "/Contact" | "/Projects";
+		Pathname(): "/" | "/About" | "/About/" | "/Contact" | "/Contact/" | "/Projects" | "/Projects/";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/fonts/Atkinson-Hyperlegible-Next-Italic.woff2" | "/fonts/Atkinson-Hyperlegible-Next.woff2" | "/fonts/Geo-Italic.woff2" | "/fonts/Geo-Regular.woff2" | "/robots.txt";
+		Asset(): "/fonts/Atkinson-Hyperlegible-Next-Italic.woff2" | "/fonts/Atkinson-Hyperlegible-Next.woff2" | "/fonts/Geo-Italic.woff2" | "/fonts/Geo-Regular.woff2" | "/robots.txt" | string & {};
 	}
 }
