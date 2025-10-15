@@ -2,5 +2,8 @@
 	"/": [],
 	"/About": [],
 	"/Contact": [],
-	"/Projects": []
+	"/Projects": [],
+	"/SteamProfile": [
+		"src/routes/SteamProfile/+page.server.js"
+	]
 }

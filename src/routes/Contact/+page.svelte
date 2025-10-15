@@ -3,12 +3,25 @@
     import Typewriter from 'svelte-typewriter';
 	import { fly } from 'svelte/transition';
     import { onMount } from 'svelte';
+    import Navbar from '$lib/components/ui/Navbar/Navbar.svelte';
 
 	import CoolButton from '$lib/components/ui/CoolButton/CoolButton.svelte';
 
     let sparkleCount = 0;
     let showButtons = false;
     let showLinks = false;
+
+    const navLinks = [
+        {text: 'About', href: '../About'},
+        {text: 'Projects', href: '../Projects'},
+        {text: 'Contact', href: '../Contact'},
+        // {text: 'Blog', href: '../Blog'}
+    ];
+
+    const breadcrumbs = [
+        { text: 'Home', href: '../'},
+        { text: 'Contact', href: '../Contact', current: true}
+    ];
     
     onMount(() => {
         function updateSparkleCount() {
@@ -32,27 +45,28 @@
 
 <!-- <Navbar /> -->
 
+<Navbar
+    breadcrumbs = {breadcrumbs}
+    navLinks = {navLinks}
+></Navbar>
+
 <div class="relative w-full text-[#FCFFF9]"
     style="font-family: 'geo-regular', sans-serif;">
 
     <div class="py-8 h-screen"
         style="font-family: 'geo-regular', sans-serif;"
     >
-        <Typewriter 
-            mode="cascade" 
-            interval={25} 
-            keepCursorOnFinish={false} 
-            cursor={false}
-            on:done={() => showLinks = true}
-        >
-            <p class="text-8xl justify-center text-center flex items-center w-full text-[#FCFFF9]">Contact Me!</p>
-        </Typewriter>
 
-        {#if showLinks}
+        <div class="py-8"
+            on:introend={() => showButtons = true}>
+            <p class="text-8xl justify-center text-center flex items-center w-full text-[#FCFFF9]">Contact Me!</p>
+        </div>
+
+        {#if showButtons}
         <div class="flex-grow py-16 flex flex-col justify-center items-center gap-8"
             style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
             transition:fly={{delay:300, duration:300, x:0, y:150}}
-            on:introend={() => showButtons = true}
+            on:introend={() => showLinks = true}
         >
             <CoolButton 
                 text = "Check out my (public) code!"

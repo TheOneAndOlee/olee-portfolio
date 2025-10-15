@@ -27,7 +27,7 @@ export {};
 
 declare module "$app/types" {
 	export interface AppTypes {
-		RouteId(): "/" | "/About" | "/Contact" | "/Projects";
+		RouteId(): "/" | "/About" | "/Contact" | "/Projects" | "/SteamProfile";
 		RouteParams(): {
 			
 		};
@@ -35,9 +35,10 @@ declare module "$app/types" {
 			"/": Record<string, never>;
 			"/About": Record<string, never>;
 			"/Contact": Record<string, never>;
-			"/Projects": Record<string, never>
+			"/Projects": Record<string, never>;
+			"/SteamProfile": Record<string, never>
 		};
-		Pathname(): "/" | "/About" | "/About/" | "/Contact" | "/Contact/" | "/Projects" | "/Projects/";
+		Pathname(): "/" | "/About" | "/About/" | "/Contact" | "/Contact/" | "/Projects" | "/Projects/" | "/SteamProfile" | "/SteamProfile/";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
 		Asset(): "/fonts/Atkinson-Hyperlegible-Next-Italic.woff2" | "/fonts/Atkinson-Hyperlegible-Next.woff2" | "/fonts/Geo-Italic.woff2" | "/fonts/Geo-Regular.woff2" | "/robots.txt" | string & {};
 	}

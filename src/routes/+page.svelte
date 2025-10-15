@@ -1,9 +1,12 @@
-<script>
+<script lang="ts">
     import '../app.css'
     import CoolButton from '$lib/components/ui/CoolButton/CoolButton.svelte';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
     import Navbar from '$lib/components/ui/Navbar/Navbar.svelte';
+    // import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
+    // import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
+    // import { Button } from '$lib/components/ui/button/index.js';
 
     let showNext = false;
     let showIntro = false;
@@ -11,9 +14,10 @@
     let showStart = false;
 
     const navLinks = [
-        {text: 'About', href: '../about'},
-        {text: 'Projects', href: '../projects'},
-        {text: 'Contact', href: '../contact'}
+        {text: 'About', href: '../About'},
+        {text: 'Projects', href: '../Projects'},
+        {text: 'Contact', href: '../Contact'},
+        // {text: 'Blog', href: '../Blog'}
     ];
 
     const breadcrumbs = [
@@ -37,6 +41,13 @@
 -->
 
 <!-- <Navbar /> -->
+
+<svelte:head>
+    <title>Welcome!</title>
+    <meta name="description" content="Introductory Page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+</svelte:head>
 
 <Navbar
     breadcrumbs = {breadcrumbs}
@@ -88,19 +99,16 @@
                         transition:fly={{delay:200, duration:300, x:0, y:225}}
                     >
                         <CoolButton 
-                            text = "Check out my (public) code!"
-                            imgSrc = "/src/lib/assets/github-fixed.png"
-                            href = "https://github.com/olee0"
+                            text = "About Me!"
+                            href = "../About"
                         />
                         <CoolButton 
-                            text = "Check out my (public) code!"
-                            imgSrc = "/src/lib/assets/github-fixed.png"
-                            href = "https://github.com/olee0"
+                            text = "Projects!"
+                            href = "../Projects"
                         />
                         <CoolButton 
-                            text = "Check out my (public) code!"
-                            imgSrc = "/src/lib/assets/github-fixed.png"
-                            href = "https://github.com/olee0"
+                            text = "Contact Me!"
+                            href = "../Contact"
                         />
                     </div>
                 {/if} 

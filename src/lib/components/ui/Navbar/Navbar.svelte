@@ -1,5 +1,7 @@
 <script>
     import { Colors } from '$lib/assets/Colors.js';
+    import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
+    import { Button } from '$lib/components/ui/button/index.js';
 
     export let navLinks = [
         { text: 'About', href: '#' },
@@ -10,6 +12,10 @@
 
     let backgroundColor = Colors.BGBlack;
     let textColor = Colors.WhiteText;
+    let hoverColor = Colors.HoverGray;
+    let gold = Colors.ButtonGold;
+    let testBlue1 = Colors.TestBlue1;
+    let testBlue2 = Colors.TestBlue2;
 
     export let breadcrumbs = [
         { text: 'Projects', href: '#' },
@@ -24,58 +30,31 @@
 </script>
 
 <!-- Navbar Component -->
-<nav class="bg-[{backgroundColor}] shadow-md">
+<nav class="shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
+        <div class="flex items-center justify-between h-16" style="text-color: {textColor};">
             <!-- Breadcrumb -->
-            <div class="flex items-center">
-                <div class="flex-shrink-0">
-                    <a href="../" class="text-xl font-bold text-[{textColor}]">Logo</a>
-                </div>
-                <div class="hidden md:block">
-                    <nav aria-label="Breadcrumb">
-                        <ol class="ml-10 flex items-center space-x-4">
-                            <li>
-                                <div>
-                                    <a href="/" class="text-[{textColor}] hover:text-gray-700">
-                                        <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" />
-                                        </svg>
-                                        <span class="sr-only">Home</span>
-                                    </a>
-                                </div>
-                            </li>
-                            
-                            <!-- Dynamic Breadcrumb items -->
-                            {#each breadcrumbs as breadcrumb}
-                                <li>
-                                    <div class="flex items-center">
-                                        <svg class="h-5 w-5 flex-shrink-0 text-[{textColor}]" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                            <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
-                                        </svg>
-                                        {#if breadcrumb.current}
-                                            <span aria-current="page" class="ml-4 text-sm font-medium text-[{textColor}]">{breadcrumb.text}</span>
-                                        {:else}
-                                            <a href={breadcrumb.href} class="ml-4 text-sm font-medium text-[{textColor}] hover:text-gray-700">{breadcrumb.text}</a>
-                                        {/if}
-                                    </div>
-                                </li>
-                            {/each}
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-
-            <!-- Right side links -->
-            <div class="hidden md:block">
-                <div class="ml-4 flex items-center md:ml-6 space-x-4">
-                    {#each navLinks as link}
-                        <a href={link.href} class="text-[{textColor}] hover:text-gray-900 px-3 py-2 text-sm">
-                            {link.text}
-                        </a>
+            
+            <Breadcrumb.Root textColor={textColor}>
+                <Breadcrumb.List>
+                    {#each breadcrumbs as crumb, index}
+                        <Breadcrumb.Item>
+                            {#if crumb.current}
+                                <Breadcrumb.Page>{crumb.text}</Breadcrumb.Page>
+                            {:else}
+                                <Breadcrumb.Link href={crumb.href}>{crumb.text}</Breadcrumb.Link>
+                            {/if}
+                        </Breadcrumb.Item>
+                        {#if index < breadcrumbs.length - 1}
+                            <Breadcrumb.Separator />
+                        {/if}
                     {/each}
-                </div>
-            </div>
+                </Breadcrumb.List>
+            </Breadcrumb.Root>
+
+            {#each navLinks as link}
+                <Button variant="link" href={link.href} textColor={textColor}>{link.text}</Button>
+            {/each}
 
             <!-- Mobile menu button -->
             <div class="-mr-2 flex md:hidden">
@@ -99,7 +78,7 @@
     <div class:hidden={!isMobileMenuOpen} class="md:hidden">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
              {#each navLinks as link}
-                <a href={link.href} class="text-[{textColor}] hover:bg-gray-100 hover:text-gray-900">
+                <a href={link.href} class="text-[{textColor}] hover:bg-gray-100 hover:text-[{hoverColor}]">
                     {link.text}
                 </a>
             {/each}
@@ -111,7 +90,7 @@
     /* You can add component-specific styles here if needed. */
     /* Note: To use TailwindCSS, you'll need to have it set up in your Svelte project. */
     :global(body) {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Atkinson-Hyperlegible-Next', sans-serif;
         background-color: #f3f4f6; /* Equivalent to bg-gray-100 */
     }
 </style>

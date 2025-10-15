@@ -4,10 +4,23 @@
     import Typewriter from 'svelte-typewriter';
 	import { fly } from 'svelte/transition';
     import CardHoverEffect from '$lib/components/ui/CardHoverEffect/CardHoverEffect.svelte';
+    import Navbar from '$lib/components/ui/Navbar/Navbar.svelte';
 
     let showText = false;
     let showImage = false;
     let showButtons = false;
+
+    const breadcrumbs = [
+        { text: 'Home', href: '../'},
+        { text: 'About', href : '../About', current : true}
+    ];
+
+    const navLinks = [
+        {text: 'About', href: '../About'},
+        {text: 'Projects', href: '../Projects'},
+        {text: 'Contact', href: '../Contact'},
+        // {text: 'Blog', href: '../Blog'}
+    ];
 </script>
 
 <!-- For Credits:
@@ -16,6 +29,11 @@
 -->
 
 <!-- <Navbar /> -->
+
+<Navbar
+    breadcrumbs = {breadcrumbs}
+    navLinks = {navLinks}
+></Navbar>
 
 <div class="relative w-full text-[#FCFFF9]">
     <div class="h-screen flex flex-col">
