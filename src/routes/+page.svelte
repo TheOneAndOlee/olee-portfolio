@@ -42,15 +42,20 @@
 
 <!-- <Navbar /> -->
 
+<svelte:head>
+    <title>Welcome!</title>
+    <meta name="description" content="Introductory Page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+</svelte:head>
+
+<Navbar
+    breadcrumbs = {breadcrumbs}
+    navLinks = {navLinks}
+></Navbar>
 
 <div class="relative w-full text-[#FCFFF9]">
     <div class="h-screen flex flex-col">
-
-        <Navbar
-            breadcrumbs = {breadcrumbs}
-            navLinks = {navLinks}
-        ></Navbar>
-
         <div class="py-8"
             style="font-family: 'geo-regular', sans-serif;"
             on:introend={() => showNext = true}
