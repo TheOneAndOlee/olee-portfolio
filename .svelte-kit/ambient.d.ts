@@ -26,6 +26,8 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const VITE_STEAM_API_KEY: string;
+	export const VITE_STEAM_ID: string;
 	export const ALLUSERSPROFILE: string;
 	export const APPDATA: string;
 	export const CHROME_CRASHPAD_PIPE_NAME: string;
@@ -34,11 +36,11 @@ declare module '$env/static/private' {
 	export const COMPUTERNAME: string;
 	export const ComSpec: string;
 	export const DriverData: string;
-	export const EFC_8964_1262719628: string;
-	export const EFC_8964_1592913036: string;
-	export const EFC_8964_2283032206: string;
-	export const EFC_8964_2775293581: string;
-	export const EFC_8964_3789132940: string;
+	export const EFC_6628_1262719628: string;
+	export const EFC_6628_1592913036: string;
+	export const EFC_6628_2283032206: string;
+	export const EFC_6628_2775293581: string;
+	export const EFC_6628_3789132940: string;
 	export const ELECTRON_NO_ASAR: string;
 	export const ELECTRON_RUN_AS_NODE: string;
 	export const FPS_BROWSER_APP_PROFILE_STRING: string;
@@ -118,6 +120,8 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		VITE_STEAM_API_KEY: string;
+		VITE_STEAM_ID: string;
 		ALLUSERSPROFILE: string;
 		APPDATA: string;
 		CHROME_CRASHPAD_PIPE_NAME: string;
@@ -126,11 +130,11 @@ declare module '$env/dynamic/private' {
 		COMPUTERNAME: string;
 		ComSpec: string;
 		DriverData: string;
-		EFC_8964_1262719628: string;
-		EFC_8964_1592913036: string;
-		EFC_8964_2283032206: string;
-		EFC_8964_2775293581: string;
-		EFC_8964_3789132940: string;
+		EFC_6628_1262719628: string;
+		EFC_6628_1592913036: string;
+		EFC_6628_2283032206: string;
+		EFC_6628_2775293581: string;
+		EFC_6628_3789132940: string;
 		ELECTRON_NO_ASAR: string;
 		ELECTRON_RUN_AS_NODE: string;
 		FPS_BROWSER_APP_PROFILE_STRING: string;

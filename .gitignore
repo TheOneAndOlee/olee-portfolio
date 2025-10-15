@@ -2,3 +2,8 @@
 *.css.map
 *.sass.map
 *.scss.map
+.env
+.png
+.env.local
+.jpg
+.webp
