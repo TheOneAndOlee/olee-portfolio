@@ -30,13 +30,13 @@
     <link rel="icon" href="/favicon.ico" />
 </svelte:head>
 
-<Navbar
-    breadcrumbs = {breadcrumbs}
-    navLinks = {navLinks}
-></Navbar>
-
 <div class="container" style="font-family: 'Atkinson-Hyperlegible-Next', sans-serif; color: {textColor};">
     
+    <Navbar
+        breadcrumbs = {breadcrumbs}
+        navLinks = {navLinks}
+    ></Navbar>
+
     <h1 class="text-4xl mb-4 text-center w-full text-[{textColor}]">My Most Recently Played Steam Games!</h1>
     <p>
         <em>Data Source: {data.source} | Last Updated: {data.lastUpdated} | Total Games Played Recently: {data.totalGames}</em>

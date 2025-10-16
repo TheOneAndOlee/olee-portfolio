@@ -45,14 +45,16 @@
 
 <!-- <Navbar /> -->
 
-<Navbar
-    breadcrumbs = {breadcrumbs}
-    navLinks = {navLinks}
-></Navbar>
+
 
 <div class="relative w-full text-[#FCFFF9]"
     style="font-family: 'geo-regular', sans-serif;">
 
+    <Navbar
+        breadcrumbs = {breadcrumbs}
+        navLinks = {navLinks}
+    ></Navbar>
+    
     <div class="py-8 h-screen"
         style="font-family: 'geo-regular', sans-serif;"
     >

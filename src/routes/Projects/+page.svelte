@@ -18,6 +18,7 @@
 
 <div class="relative w-full text-[#FCFFF9]"
     style="font-family: 'geo-regular', sans-serif;">
+    
     <div class="h-screen flex flex-col">
         <div class="py-8">
             <Typewriter 

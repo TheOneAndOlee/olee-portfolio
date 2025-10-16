@@ -30,15 +30,15 @@
 
 <!-- <Navbar /> -->
 
-<Navbar
-    breadcrumbs = {breadcrumbs}
-    navLinks = {navLinks}
-></Navbar>
+<div class="relative w-full text-[#FCFFF9] flex flex-col">
 
-<div class="relative w-full text-[#FCFFF9]">
-    <div class="h-screen flex flex-col">
-        <div class="py-8"
-            style="font-family: 'geo-regular', sans-serif;">
+    <Navbar
+        breadcrumbs = {breadcrumbs}
+        navLinks = {navLinks}
+    ></Navbar>  
+
+    <div class="flex flex-grow flex-col">
+        <div class="py-8" style="font-family: 'geo-regular', sans-serif;">
             <Typewriter 
                 mode="cascade" 
                 interval={25} 
