@@ -26,9 +26,8 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const VITE_STEAM_API_KEY: string;
-	export const VITE_STEAM_ID: string;
 	export const ALLUSERSPROFILE: string;
+	export const AMDRMPATH: string;
 	export const APPDATA: string;
 	export const CHROME_CRASHPAD_PIPE_NAME: string;
 	export const CommonProgramFiles: string;
@@ -36,31 +35,29 @@ declare module '$env/static/private' {
 	export const COMPUTERNAME: string;
 	export const ComSpec: string;
 	export const DriverData: string;
-	export const EFC_6628_1262719628: string;
-	export const EFC_6628_1592913036: string;
-	export const EFC_6628_2283032206: string;
-	export const EFC_6628_2775293581: string;
-	export const EFC_6628_3789132940: string;
+	export const EFC_11320_1262719628: string;
+	export const EFC_11320_1592913036: string;
+	export const EFC_11320_2283032206: string;
+	export const EFC_11320_2775293581: string;
+	export const EFC_11320_3789132940: string;
 	export const ELECTRON_NO_ASAR: string;
 	export const ELECTRON_RUN_AS_NODE: string;
+	export const FargoDataPath: string;
 	export const FPS_BROWSER_APP_PROFILE_STRING: string;
 	export const FPS_BROWSER_USER_PROFILE_STRING: string;
 	export const HOMEDRIVE: string;
 	export const HOMEPATH: string;
-	export const IGCCSVC_DB: string;
 	export const LOCALAPPDATA: string;
 	export const LOGONSERVER: string;
 	export const NODE_ENV: string;
 	export const NUMBER_OF_PROCESSORS: string;
-	export const OculusBase: string;
+	export const NVAFX_SDK_DIR: string;
 	export const OneDrive: string;
 	export const OneDriveConsumer: string;
-	export const OnlineServices: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const OS: string;
 	export const Path: string;
 	export const PATHEXT: string;
-	export const platformcode: string;
 	export const PROCESSOR_ARCHITECTURE: string;
 	export const PROCESSOR_IDENTIFIER: string;
 	export const PROCESSOR_LEVEL: string;
@@ -70,7 +67,7 @@ declare module '$env/static/private' {
 	export const ProgramW6432: string;
 	export const PSModulePath: string;
 	export const PUBLIC: string;
-	export const RegionCode: string;
+	export const QT_SCALE_FACTOR_ROUNDING_POLICY: string;
 	export const SESSIONNAME: string;
 	export const SystemDrive: string;
 	export const SystemRoot: string;
@@ -80,6 +77,7 @@ declare module '$env/static/private' {
 	export const USERDOMAIN_ROAMINGPROFILE: string;
 	export const USERNAME: string;
 	export const USERPROFILE: string;
+	export const VBOX_HWVIRTEX_IGNORE_SVM_IN_USE: string;
 	export const VIPSHOME: string;
 	export const VSCODE_CODE_CACHE_PATH: string;
 	export const VSCODE_CRASH_REPORTER_PROCESS_TYPE: string;
@@ -90,7 +88,7 @@ declare module '$env/static/private' {
 	export const VSCODE_NLS_CONFIG: string;
 	export const VSCODE_PID: string;
 	export const windir: string;
-	export const ZES_ENABLE_SYSMAN: string;
+	export const __PSLockDownPolicy: string;
 }
 
 /**
@@ -120,9 +118,8 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		VITE_STEAM_API_KEY: string;
-		VITE_STEAM_ID: string;
 		ALLUSERSPROFILE: string;
+		AMDRMPATH: string;
 		APPDATA: string;
 		CHROME_CRASHPAD_PIPE_NAME: string;
 		CommonProgramFiles: string;
@@ -130,31 +127,29 @@ declare module '$env/dynamic/private' {
 		COMPUTERNAME: string;
 		ComSpec: string;
 		DriverData: string;
-		EFC_6628_1262719628: string;
-		EFC_6628_1592913036: string;
-		EFC_6628_2283032206: string;
-		EFC_6628_2775293581: string;
-		EFC_6628_3789132940: string;
+		EFC_11320_1262719628: string;
+		EFC_11320_1592913036: string;
+		EFC_11320_2283032206: string;
+		EFC_11320_2775293581: string;
+		EFC_11320_3789132940: string;
 		ELECTRON_NO_ASAR: string;
 		ELECTRON_RUN_AS_NODE: string;
+		FargoDataPath: string;
 		FPS_BROWSER_APP_PROFILE_STRING: string;
 		FPS_BROWSER_USER_PROFILE_STRING: string;
 		HOMEDRIVE: string;
 		HOMEPATH: string;
-		IGCCSVC_DB: string;
 		LOCALAPPDATA: string;
 		LOGONSERVER: string;
 		NODE_ENV: string;
 		NUMBER_OF_PROCESSORS: string;
-		OculusBase: string;
+		NVAFX_SDK_DIR: string;
 		OneDrive: string;
 		OneDriveConsumer: string;
-		OnlineServices: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		OS: string;
 		Path: string;
 		PATHEXT: string;
-		platformcode: string;
 		PROCESSOR_ARCHITECTURE: string;
 		PROCESSOR_IDENTIFIER: string;
 		PROCESSOR_LEVEL: string;
@@ -164,7 +159,7 @@ declare module '$env/dynamic/private' {
 		ProgramW6432: string;
 		PSModulePath: string;
 		PUBLIC: string;
-		RegionCode: string;
+		QT_SCALE_FACTOR_ROUNDING_POLICY: string;
 		SESSIONNAME: string;
 		SystemDrive: string;
 		SystemRoot: string;
@@ -174,6 +169,7 @@ declare module '$env/dynamic/private' {
 		USERDOMAIN_ROAMINGPROFILE: string;
 		USERNAME: string;
 		USERPROFILE: string;
+		VBOX_HWVIRTEX_IGNORE_SVM_IN_USE: string;
 		VIPSHOME: string;
 		VSCODE_CODE_CACHE_PATH: string;
 		VSCODE_CRASH_REPORTER_PROCESS_TYPE: string;
@@ -184,7 +180,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_NLS_CONFIG: string;
 		VSCODE_PID: string;
 		windir: string;
-		ZES_ENABLE_SYSMAN: string;
+		__PSLockDownPolicy: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}
