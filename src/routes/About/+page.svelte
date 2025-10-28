@@ -1,9 +1,7 @@
 <script>
     import '../../app.css'
-    import Sparkles from '$lib/components/ui/Sparkles/Sparkles.svelte';
     import Typewriter from 'svelte-typewriter';
 	import { fly } from 'svelte/transition';
-    import CardHoverEffect from '$lib/components/ui/CardHoverEffect/CardHoverEffect.svelte';
     import Navbar from '$lib/components/ui/Navbar/Navbar.svelte';
 
     let showText = false;
@@ -82,14 +80,7 @@
                 {#if showButtons}
                     <div class="mx-8" 
                     transition:fly={{delay:200, duration:500, x:-300, y:0}}>
-                    <CardHoverEffect
-                        items={[
-                                {title: "Contact", description: "Getting in touch with me!", link: "/Contact"},
-                                {title: "Back Home", description: "Back to the introduction!", link:"../"},
-                                {title: "Projects", description: "Learn more about my work!", link:"/Projects"}
-                            ]} 
-                        >
-                    </CardHoverEffect>
+                    
                 </div>
                 {/if}
             </div>
