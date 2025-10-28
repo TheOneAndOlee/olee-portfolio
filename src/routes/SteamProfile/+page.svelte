@@ -1,7 +1,6 @@
 <script lang="ts">
     export let data;    
     import '../../app.css'
-    import CoolButton from '$lib/components/ui/CoolButton/CoolButton.svelte';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
     import Navbar from '$lib/components/ui/Navbar/Navbar.svelte';

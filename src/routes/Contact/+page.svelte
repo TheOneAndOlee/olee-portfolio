@@ -1,6 +1,5 @@
 <script>
     import '../../app.css'
-    import Typewriter from 'svelte-typewriter';
 	import { fly } from 'svelte/transition';
     import { onMount } from 'svelte';
     import Navbar from '$lib/components/ui/Navbar/Navbar.svelte';

@@ -1,14 +1,15 @@
 <script lang="ts">
     import '../app.css'
     import CoolButton from '$lib/components/ui/CoolButton/CoolButton.svelte';
-    import Button from '$lib/components/ui/button/button.svelte';
+    import Button, { buttonVariants } from '$lib/components/ui/button/button.svelte';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
     import Navbar from '$lib/components/ui/Navbar/Navbar.svelte';
-    // import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
-    // import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
-    // import { Button } from '$lib/components/ui/button/index.js';
+    import { Colors } from '$lib/assets/Colors.js';
 
+
+    const textColor = Colors.WhiteText;
+    const buttonBlack = Colors.BGBlack;
     let showNext = false;
     let showIntro = false;
     let showButtons = false;
@@ -111,24 +112,38 @@
                     <div class="flex-grow"></div>
 
                     {#if showButtons}
-                        <div class="flex flex-col justify-center items-center gap-8"
+                        <div class="flex flex-col justify-center items-center gap-8 py-8"
                             transition:fly={{delay:200, duration:300, x:0, y:225}}
                         >
                             <p class="underline text-4xl text-[#FCFFF9] text-center w-full justify-center items-center">Check out these links!</p>
                                 
                             <div class="flex justify-center items-center gap-8">
-                                <CoolButton 
-                                    text = "More About Me!"
-                                    href = "../About"
-                                />
-                                <CoolButton 
-                                    text = "Projects!"
-                                    href = "../Projects"
-                                />
-                                <CoolButton 
-                                    text = "Contact Me!"
-                                    href = "../Contact"
-                                />
+                                <!-- <Button 
+                                    variant="outline" 
+                                    href='../About' 
+                                    textColor={buttonBlack}
+                                    size="xl3"
+                                >
+                                    About Me!
+                                </Button> -->
+
+                                <Button 
+                                    variant="outline" 
+                                    href='../Projects' 
+                                    textColor={buttonBlack}
+                                    size="xl3"
+                                >
+                                    Projects!
+                                </Button>
+
+                                <Button 
+                                    variant="outline" 
+                                    href='../Contact' 
+                                    textColor={buttonBlack}
+                                    size="xl3"
+                                >
+                                    Contact Me!
+                                </Button>
                             </div>
                         </div>
                     {/if} 
