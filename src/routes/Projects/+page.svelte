@@ -12,6 +12,12 @@
     import { Badge } from "$lib/components/ui/badge/index.js";
 	import { linear } from 'svelte/easing';
 	import { Link } from '$lib/components/ui/breadcrumb';
+    import { projects } from '$lib/assets/Projects.js';
+    import { categories } from '$lib/assets/Categories';
+    import { tagCategoryMap } from '$lib/assets/TagToCategory';
+
+    const typedCategories: Record<string, string> = categories;
+    const typedTagCategoryMap: Record<string, string> = tagCategoryMap;
 
     // Navbar Links - Update Accordingly!
     const navLinks = [
@@ -24,57 +30,6 @@
     const breadcrumbs = [
         { text: 'Home', href: '../'},
         { text: 'Projects', href: '../Projects', current: true }
-    ];
-
-    const projects = [
-        {
-            title: "VRRocketry",
-            description: "A rocketry simulation in VR",
-            tags: ["Unreal Engine 5", "VR/AR/XR", "Unreal Engine Blueprints", "Game Development", "Collaboration", "Perforce", "Playtesting"],
-            link: "../../"
-        },
-        {
-            title: "Find and Connect",
-            description: "A social networking app for anyone",
-            tags: ["MongoDB", "Android Studio", "Kotlin", "Kotlin Coroutines", "Python", "Quality Assurance", "Collaboration"],
-            link: "../../"
-        },
-        {
-            title: "Fish Fracas",
-            description: "A submission for the Gamebuilders 2025 game jam",
-            tags: ["Godot", "GDScript", "Collaboration", "Game Development", "GitHub"],
-            link: "../../"
-        },
-        {
-            title: "Richochet Standoff",
-            description: "A simple shooting prototype with a twist, built in Unity for a course",
-            tags: ["Unity", "C#", "Game Development", "GitHub"],
-            link: "../../"
-        },
-        {
-            title: "The Downstairs",
-            description: "A horror game made as a part of Gamebuilders' 2024 Winter Session",
-            tags: ["Audacity", "Playtesting", "Game Design"],
-            link: "../../"
-        },
-        {
-            title: "Illini Esports Minecraft",
-            description: "Hosting and coordinating community events in Minecraft",
-            tags: ["Community Management", "Event Planning", "Collaboration"],
-            link: "../../"
-        },
-        {
-            title: "Summer Tech Internship w/ Discovery Partners Institute",
-            description: "A program focused on developing workforce skills in tech",
-            tags: ["Professional Development", "Collaboration", "Interview Skills", "Resume Building", "Networking"],
-            link: "../../"
-        },
-        {
-            title: "Personal Website",
-            description: "Creating this website using SvelteKit",
-            tags: ["SvelteKit", "TypeScript", "TailwindCSS"],
-            link: "../../"
-        }
     ];
 
 </script>
@@ -97,20 +52,52 @@
 
         <div class="flex-1 overflow-y-auto p-8 md:p-12">
             <h1 class="w-full text-center justify-items-center mb-8 text-4xl">My Projects!</h1>
+            
+           <div class="w-full flex justify-center mb-8">
+                
+                <div 
+                    class="inline-flex flex-wrap justify-center gap-x-4 gap-y-2 p-3 bg-[#FCFFF9] text-[#041322] rounded-3xl shadow-md"
+                >
+                    {#each Object.entries(typedCategories) as [category, style]}
+                        {#if category !== 'default'}
+                            <div class="flex items-center gap-2">
+                                <div class="h-3 w-3 rounded-full {style.split(' ')[0]}"></div>
+                                <span class="text-sm font-medium">{category}</span>
+                            </div>
+                        {/if}
+                    {/each}
+                </div>
+
+            </div>
 
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <Card.Root>
-                    <Card.Header>
-                        <Card.Title>VRRocketry</Card.Title>
-                        <Card.Description>A rocketry simulation in VR</Card.Description>
-                    </Card.Header>
-                    <Card.Content>
-                        <p>Card Content</p>
-                    </Card.Content>
-                    <Card.Footer>
-                        <Button variant="link" size="sm">Learn More</Button>
-                    </Card.Footer>
-                </Card.Root>
+                {#each projects as project}
+                    <Card.Root>
+                        <Card.Header>
+                            <Card.Title>{project.title}</Card.Title>
+                            <Card.Description>{project.description}</Card.Description>
+                        </Card.Header>
+                        <Card.Content class="flex-1">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                {#each project.tags as tag}
+                                    {@const category = typedTagCategoryMap[tag] || 'default'}
+
+                                    {@const style = typedCategories[category]}
+                                
+                                    <Badge class={style}>{tag}</Badge>
+                                {/each}
+                            </div>
+                        </Card.Content>
+                        <Card.Footer>
+                            {#if project.footer != ""}
+                                <Button variant="link" size="sm" href={project.link} target="_blank">{project.footer}</Button>
+                            {:else}
+                                <Button variant="link" size="sm">No page for this project yet, sorry!</Button>
+                            {/if}
+                            <!-- <Button variant="link" size="sm">Learn More</Button> -->
+                        </Card.Footer>
+                    </Card.Root>
+                {/each}
             </div>
         </div>
     </div>
