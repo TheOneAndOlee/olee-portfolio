@@ -29,39 +29,41 @@
     <link rel="icon" href="/favicon.ico" />
 </svelte:head>
 
-<div class="container" style="font-family: 'Atkinson-Hyperlegible-Next', sans-serif; color: {textColor};">
+<div class="relative w-full text-[#FCFFF9] h-screen flex flex-col">
     
     <Navbar
         breadcrumbs = {breadcrumbs}
         navLinks = {navLinks}
     ></Navbar>
 
-    <h1 class="text-4xl mb-4 text-center w-full text-[{textColor}]">My Most Recently Played Steam Games!</h1>
-    <p>
-        <em>Data Source: {data.source} | Last Updated: {data.lastUpdated} | Total Games Played Recently: {data.totalGames}</em>
-    </p>
-    {#if data.recentGames && data.recentGames.length !== 0}
-        <table class="table table-striped table-xl">
-            <thead>
-                <tr>
-                    <th>Game</th>
-                    <th>Hours (Last 2 Weeks)</th>
-                    <th>Hours (Total)</th>
-                </tr>
-            </thead>
-            <tbody>
-                {#each data.recentGames as game}
+    <h1 class="text-[5vh] mb-4 text-center w-full text-[{textColor}]">My Most Recently Played Steam Games!</h1>
+    <em class="text-[2.25vh] text-center w-full">Data Source: {data.source} | Last Updated: {data.lastUpdated} | Total Games Played Recently: {data.totalGames}</em>
+    
+    <div class="container" style="font-family: 'Atkinson-Hyperlegible-Next', sans-serif; color: {textColor};">
+
+        {#if data.recentGames && data.recentGames.length !== 0}
+            <table class="table table-striped table-xl">
+                <thead>
                     <tr>
-                        <td>{game.name}</td>
-                        <td>{(game.playtime_2weeks / 60).toFixed(2)}</td>
-                        <td>{(game.playtime_forever / 60).toFixed(2)}</td>
+                        <th class="text-[#041322]">Game</th>
+                        <th class="text-[#041322]">Hours (Last 2 Weeks)</th>
+                        <th class="text-[#041322]">Hours (Total)</th>
                     </tr>
-                {/each}
-            </tbody> 
-        </table>
-    {:else}
-        <p>No recent games found!</p>
-    {/if}
+                </thead>
+                <tbody>
+                    {#each data.recentGames as game}
+                        <tr>
+                            <td>{game.name}</td>
+                            <td>{(game.playtime_2weeks / 60).toFixed(2)}</td>
+                            <td>{(game.playtime_forever / 60).toFixed(2)}</td>
+                        </tr>
+                    {/each}
+                </tbody> 
+            </table>
+        {:else}
+            <p>No recent games found!</p>
+        {/if}
+    </div>
 </div>
 
 <style>

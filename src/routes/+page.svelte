@@ -69,7 +69,7 @@
                 on:introend={() => showSecondary = true}
             >
 
-                 <p class="text-8xl justify-center text-center flex items-center w-full text-[#FCFFF9]">Hey! I'm&nbsp;<u>Osmond Lee</u>,</p>
+                 <p class="text-[6.5vh] justify-center text-center flex items-center w-full text-[#FCFFF9]">Hey! I'm&nbsp;<u>Osmond Lee</u>,</p>
             </div>
             {/if}
             {#if showSecondary}
@@ -78,14 +78,14 @@
                 on:introend={() => showIntro = true}
             >
 
-                 <p class="text-4xl justify-center text-center flex items-center w-full text-[#FCFFF9]">AKA&nbsp;<i>TheOneAndOlee</i>, or&nbsp;<i>TOAO</i>&nbsp;for short</p>
+                 <p class="text-[3.5vh] justify-center text-center flex items-center w-full text-[#FCFFF9]">AKA&nbsp;<i>TheOneAndOlee</i>, or&nbsp;<i>TOAO</i>&nbsp;for short</p>
             </div>
             {/if}
         </div>
 
         {#if showIntro}
-            <div class="flex flex-row flex-grow min-h-0">
-                <div class="h-full px-8 py-8" transition:fly={{delay:250, duration:300, x:-100, y:0}}>
+            <div class="flex flex-col lg:flex-row flex-grow min-h-0">
+                <div class="h-full px-8 py-4" transition:fly={{delay:250, duration:300, x:-100, y:0}}>
                     <enhanced:img 
                         class="relative z-50 h-full w-auto" 
                         src="/src/lib/assets/betterHeadshot.webp" 
@@ -99,23 +99,23 @@
                     on:introend={() => showButtons = true}
                     style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
                 >
-                    <div class="space-y-12 py-12">
-                        <p class="text-4xl w-full text-[#FCFFF9]">
+                    <div class="space-y-[3vh] pb-[3vh]">
+                        <p class="text-[3.2vh] w-full text-[#FCFFF9]">
                             I'm an undergraduate in Computer Science major at the University of Illinois Urbana Champaign, with a minor in Game Studies and Design.
                         </p>
-                        <p class="text-4xl w-full text-[#FCFFF9]">
+                        <p class="text-[3.2vh] w-full text-[#FCFFF9]">
                             As an avid gamer, my dream is to work in the video game industry to design and develop games that create memorable experiences.
                         </p>
-                        <p class="text-4xl w-full text-[#FCFFF9]">When I'm not doing schoolwork or working, you can find me cooking, playing video games, or writing up game design documents that will never see the light of day!</p>
+                        <p class="text-[3.2vh] w-full text-[#FCFFF9]">When I'm not doing schoolwork or working, you can find me cooking, playing video games, or writing up game design documents that will never see the light of day!</p>
                     </div>
 
                     <div class="flex-grow"></div>
 
                     {#if showButtons}
-                        <div class="flex flex-col justify-center items-center gap-8 py-8"
+                        <div class="flex flex-col justify-center items-center gap-[2vh] py-8"
                             transition:fly={{delay:200, duration:300, x:0, y:225}}
                         >
-                            <p class="underline text-4xl text-[#FCFFF9] text-center w-full justify-center items-center">Check out these links!</p>
+                            <p class="underline text-[3.5vh] text-[#FCFFF9] text-center w-full justify-center items-center">Check out these links!</p>
                                 
                             <div class="flex justify-center items-center gap-8">
                                 <!-- <Button 
