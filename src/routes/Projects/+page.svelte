@@ -7,10 +7,8 @@
     import '../../app.css'
     import Navbar from '$lib/components/ui/Navbar/Navbar.svelte';
     import * as Card from '$lib/components/ui/card/index.js';
-    import { Colors } from '$lib/assets/Colors.js';
     import Button, { buttonVariants } from '$lib/components/ui/button/button.svelte';
     import { Badge } from "$lib/components/ui/badge/index.js";
-	import { linear } from 'svelte/easing';
 	import { Link } from '$lib/components/ui/breadcrumb';
     import { projects } from '$lib/assets/Projects.js';
     import { categories } from '$lib/assets/Categories';
@@ -72,7 +70,7 @@
 
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {#each projects as project}
-                    <Card.Root>
+                    <Card.Root class="bg-[#FCFFF9]">
                         <Card.Header>
                             <Card.Title>{project.title}</Card.Title>
                             <Card.Description>{project.description}</Card.Description>
@@ -92,7 +90,7 @@
                             {#if project.footer != ""}
                                 <Button variant="link" size="sm" href={project.link} target="_blank">{project.footer}</Button>
                             {:else}
-                                <Button variant="link" size="sm">No page for this project yet, sorry!</Button>
+                                <Button variant="link" size="sm">Nothing for this project yet, sorry!</Button>
                             {/if}
                             <!-- <Button variant="link" size="sm">Learn More</Button> -->
                         </Card.Footer>
