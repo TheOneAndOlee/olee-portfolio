@@ -9,9 +9,9 @@
     let textColor = Colors.WhiteText;
 
     const navLinks = [
-        {text: 'About', href: '../About'},
+        // {text: 'About', href: '../About'},
         {text: 'Projects', href: '../Projects'},
-        {text: 'Contact', href: '../Contact'},
+        // {text: 'Contact', href: '../Contact'},
         // {text: 'Blog', href: '../Blog'}
     ];
 
