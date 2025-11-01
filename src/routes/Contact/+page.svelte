@@ -1,107 +1,85 @@
-<script>
+<!-- Sample Page -->
+<!-- To be used whenever a new page is being made -->
+<!-- For use, just make a copy of this page and build off of it! -->
+
+<script lang="ts">
+    // Imports
     import '../../app.css'
-	import { fly } from 'svelte/transition';
-    import { onMount } from 'svelte';
     import Navbar from '$lib/components/ui/Navbar/Navbar.svelte';
-
-	import CoolButton from '$lib/components/ui/CoolButton/CoolButton.svelte';
-
-    let sparkleCount = 0;
-    let showButtons = false;
-    let showLinks = false;
-
+    import * as Card from '$lib/components/ui/card/index.js';
+    import Button, { buttonVariants } from '$lib/components/ui/button/button.svelte';
+    
+    // Navbar Links - Update Accordingly!
     const navLinks = [
-        {text: 'About', href: '../About'},
+        // {text: 'About', href: '../About'},
         {text: 'Projects', href: '../Projects'},
         {text: 'Contact', href: '../Contact'},
-        // {text: 'Blog', href: '../Blog'}
     ];
 
+    // Breadcrumbs - Update Accordingly!
     const breadcrumbs = [
         { text: 'Home', href: '../'},
-        { text: 'Contact', href: '../Contact', current: true}
+        { text: 'Sample Page', href: '../SamplePage', current: true }
     ];
-    
-    onMount(() => {
-        function updateSparkleCount() {
-            sparkleCount = Math.round(window.innerWidth * 0.1);
-        }
-
-        updateSparkleCount();
-        window.addEventListener('resize', updateSparkleCount);
-
-        return () => {
-            window.removeEventListener('resize', updateSparkleCount);
-        };
-    });
-
 </script>
 
-<!-- For Credits:
-    Sparkles: https://aceternity.sveltekit.io/components/sparkles
-    TypewriterEffect: https://www.npmjs.com/package/svelte-typewriter
--->
+<!-- Head -->
+<svelte:head>
+    <title>Contact Me!</title>
+    <meta name="description" content="Get in touch with me!" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+</svelte:head>
 
-<!-- <Navbar /> -->
-
-
-
-<div class="relative w-full text-[#FCFFF9]"
-    style="font-family: 'geo-regular', sans-serif;">
-
-    <Navbar
-        breadcrumbs = {breadcrumbs}
-        navLinks = {navLinks}
-    ></Navbar>
-    
-    <div class="py-8 h-screen"
-        style="font-family: 'geo-regular', sans-serif;"
-    >
-
-        <div class="py-8"
-            on:introend={() => showButtons = true}>
-            <p class="text-8xl justify-center text-center flex items-center w-full text-[#FCFFF9]">Contact Me!</p>
-        </div>
-
-        {#if showButtons}
-        <div class="flex-grow py-16 flex flex-col justify-center items-center gap-8"
-            style="font-family: 'atkinson-hyperlegible-next', sans-serif;"
-            transition:fly={{delay:300, duration:300, x:0, y:150}}
-            on:introend={() => showLinks = true}
-        >
-            <CoolButton 
-                text = "Check out my (public) code!"
-                imgSrc = "/src/lib/assets/github-fixed.png"
-                href = "https://github.com/TheOneAndOlee"
-                invert = {1.0}
-            />
-
-            <CoolButton 
-                text = "Connect with me!"
-                imgSrc = "/src/lib/assets/linkedIn.webp"
-                href = "https://www.linkedin.com/in/olee10"
-                invert = {0.0}
-            />
-        </div>
-        {/if}
-
-        <!-- {#if showButtons}
-            <div class="mx-8" 
-                transition:fly={{delay:200, duration:300, x:0, y:100}}>
-                <CardHoverEffect
-                    items={[
-                            {title: "About me", description: "A little about me!", link: "/About"},
-                            {title: "Back Home", description: "Back to the introduction!", link:"../"},
-                            {title: "Projects", description: "Learn more about my work!", link:"/Projects"}
-                        ]} 
-                    >
-                </CardHoverEffect>
-            </div>
-        {/if} -->
+<!-- Actual Page Content -->
+<div class="relative w-full text-[#FCFFF9] h-screen flex flex-col">
+    <div class="flex flex-col flex-1 min-h-0">
+        <Navbar
+            breadcrumbs = {breadcrumbs}
+            navLinks = {navLinks}
+        ></Navbar>
     </div>
 
-        <!-- TODO 
-            1. Find carousel effect, or a list of buttons for different contacts
-            2. Contacts to add: LinkedIn, Github, and Email 
-        -->
+    <div class="flex flex-col flex-1 min-h-0">
+        <Card.Root class="bg-[#FCFFF9]">
+            <Card.Header>
+                <Card.Title>Github</Card.Title>
+                <Card.Description>Check out my Github!</Card.Description>
+            </Card.Header>
+            <Card.Content class="flex-1">
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <enhanced:img 
+                        class="relative z-50 w-full h-auto object-cover rounded-xl" 
+                        src="/src/lib/assets/github-fixed.png" 
+                        sizes="(min-width: 640px) 768px, (min-width: 1920px) 1280px, (min-width-1080) 640px" 
+                        alt="Github Logo!" 
+                    />
+                </div>
+            </Card.Content>
+            <Card.Footer>
+                
+            </Card.Footer>
+        </Card.Root>
+
+        <Card.Root class="bg-[#FCFFF9]">
+            <Card.Header>
+                <Card.Title>LinkedIn</Card.Title>
+                <Card.Description>Connect with me on LinkedIn!</Card.Description>
+            </Card.Header>
+            <Card.Content class="flex-1">
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <enhanced:img 
+                        class="relative z-50 w-full h-auto object-cover rounded-xl" 
+                        src="/src/lib/assets/linkedin.webp" 
+                        sizes="(min-width: 640px) 768px, (min-width: 1920px) 1280px, (min-width-1080) 640px" 
+                        alt="LinkedIn Logo!" 
+                    />
+                </div>
+            </Card.Content>
+            <Card.Footer>
+                
+            </Card.Footer>
+        </Card.Root>
+
+    </div>
 </div>
