@@ -70,7 +70,7 @@
                 <div class="flex flex-wrap gap-2 mb-4">
                     <enhanced:img 
                         class="relative z-50 w-full h-auto object-cover rounded-xl" 
-                        src="/src/lib/assets/linkedin.webp" 
+                        src="/src/lib/assets/linkedIn.webp" 
                         sizes="(min-width: 640px) 768px, (min-width: 1920px) 1280px, (min-width-1080) 640px" 
                         alt="LinkedIn Logo!" 
                     />
