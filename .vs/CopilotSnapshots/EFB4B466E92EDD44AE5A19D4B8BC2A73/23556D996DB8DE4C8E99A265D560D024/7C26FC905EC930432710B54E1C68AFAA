@@ -1,0 +1,20 @@
+﻿<script lang="ts">
+	let { name = "Name", link = "#", image = "" } = $props();
+
+</script>
+
+<div class="flex flex-col items-start gap-3 bg-neutral-300 p-4 w-full">
+	<span class="text-base">{name}</span>
+	<div class="border-[3px] border-black w-full aspect-[4/3] bg-neutral-200 overflow-hidden">
+		{#if image}
+			<img 
+				src={image} 
+				alt={name} 
+				class="w-full h-full object-cover"
+			/>
+		{/if}
+	</div>
+	<a href={link} class="border border-black px-8 py-1 text-sm bg-white hover:bg-neutral-100 self-center">
+		More
+	</a>
+</div>

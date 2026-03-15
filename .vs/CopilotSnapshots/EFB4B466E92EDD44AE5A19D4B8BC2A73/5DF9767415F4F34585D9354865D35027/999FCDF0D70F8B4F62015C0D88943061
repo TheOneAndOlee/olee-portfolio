@@ -1,0 +1,29 @@
+﻿<script lang="ts">
+    import Header from '$lib/components/Header.svelte';
+    import ProjectCard from '$lib/components/ProjectCard.svelte';
+
+    // Import platform icons
+    import androidIcon from '$lib/assets/platforms/Android_Black.svg';
+    import appStoreIcon from '$lib/assets/platforms/App_Store_Black.svg';
+    import itchioIcon from '$lib/assets/platforms/Itchio-Black.svg';
+    import oculusIcon from '$lib/assets/platforms/Oculus_Dark.svg';
+    import steamIcon from '$lib/assets/platforms/Steam_Dark.svg';
+
+    const allPlatforms = [androidIcon, appStoreIcon, itchioIcon, oculusIcon, steamIcon];
+</script>
+
+<div class="min-h-screen bg-white">
+    <Header />
+
+    <main class="flex flex-col items-center py-16">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-normal mb-12 md:mb-16">My Work</h1>
+
+        <div class="w-full px-4 sm:px-8 md:px-12 lg:px-[15%] xl:px-[20%]">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+                {#each Array(9) as _, i}
+                    <ProjectCard name="Name" platforms={allPlatforms} />
+                {/each}
+            </div>
+        </div>
+    </main>
+</div>

@@ -2,7 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\routes"
+    "\\src\\lib",
+    "\\src\\lib\\assets",
+    "\\src\\routes",
+    "\\static"
   ],
   "SelectedNode": "\\src\\routes\\+page.svelte",
   "PreviewInSolutionExplorer": false

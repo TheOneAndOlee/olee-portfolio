@@ -27,19 +27,18 @@ export {};
 
 declare module "$app/types" {
 	export interface AppTypes {
-		RouteId(): "/" | "/About" | "/Contact" | "/Projects" | "/SteamProfile";
+		RouteId(): "/" | "/about" | "/contact" | "/resume";
 		RouteParams(): {
 			
 		};
 		LayoutParams(): {
 			"/": Record<string, never>;
-			"/About": Record<string, never>;
-			"/Contact": Record<string, never>;
-			"/Projects": Record<string, never>;
-			"/SteamProfile": Record<string, never>
+			"/about": Record<string, never>;
+			"/contact": Record<string, never>;
+			"/resume": Record<string, never>
 		};
-		Pathname(): "/" | "/About" | "/About/" | "/Contact" | "/Contact/" | "/Projects" | "/Projects/" | "/SteamProfile" | "/SteamProfile/";
+		Pathname(): "/" | "/about" | "/contact" | "/resume";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/fonts/Atkinson-Hyperlegible-Next-Italic.woff2" | "/fonts/Atkinson-Hyperlegible-Next.woff2" | "/fonts/Geo-Italic.woff2" | "/fonts/Geo-Regular.woff2" | "/robots.txt" | string & {};
+		Asset(): "/fonts/Atkinson-Hyperlegible-Next-Italic.woff2" | "/fonts/Atkinson-Hyperlegible-Next.woff2" | "/logos/README.md" | "/README.md" | "/resume.pdf" | "/robots.txt" | string & {};
 	}
 }

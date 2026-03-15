@@ -1,0 +1,20 @@
+﻿<script lang="ts">
+    import Header from '$lib/components/Header.svelte';
+    import ProjectCard from '$lib/components/ProjectCard.svelte';
+</script>
+
+<div class="min-h-screen bg-white">
+    <Header />
+
+    <main class="flex flex-col items-center py-16">
+        <h1 class="text-6xl font-normal mb-16">My Work</h1>
+
+        <div class="w-full px-[20%]">
+            <div class="grid grid-cols-3 gap-x-12 gap-y-12">
+                {#each Array(9) as _, i}
+                    <ProjectCard name="Name" />
+                {/each}
+            </div>
+        </div>
+    </main>
+</div>
