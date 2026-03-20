@@ -10,6 +10,10 @@
 	const sectionBorderStyle = `border-color: ${AccentGold};`;
 </script>
 
+<svelte:head>
+	<title>Resume | Osmond Lee</title>
+</svelte:head>
+
 <div class="min-h-screen" style={pageStyle}>
 	<Header />
 

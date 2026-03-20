@@ -125,7 +125,10 @@
 	const supportingIcons = $derived(
 		project.supportingIcons ?? (project.gameEngine?.icon ? [project.gameEngine.icon] : project.platforms ?? [])
 	);
+	const platformIconSet = $derived(new Set(project.platforms ?? []));
+	const darkModeInvertedIconSet = $derived(new Set(project.darkModeInvertedIcons ?? []));
 	const actions = $derived(getProjectActions(project.actions));
+	const pageTitle = $derived(`${project?.name ?? 'Project'} | Osmond Lee`);
 	const actionCount = $derived(actions.length);
 	const actionContainerClass = $derived(
 		actionCount === 1
@@ -143,6 +146,10 @@
 	const actionButtonStyle = `border-color: ${AccentGold}; background-color: var(--color-control-bg); color: var(--color-control-fg); --action-hover-bg: var(--color-control-hover-bg);`;
 </script>
 
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
+
 <div class="min-h-screen" style={pageStyle}>
 	<Header />
 
@@ -154,7 +161,7 @@
 
 			<div class="border-y border-black/30" style={accentBorderStyle}>
 				<div class="grid gap-0 md:grid-cols-[1fr_2fr]">
-					<div class="border-b border-black/30 p-4 md:border-b-0 md:border-r md:p-5">
+					<div class="border-b p-4 md:border-b-0 md:border-r md:p-5" style={accentBorderStyle}>
 						<div class="w-full border border-black/15 bg-neutral-200">
 							{#if videoUrl}
 								{#if isDirectVideoFile}
@@ -190,7 +197,19 @@
 						{#if supportingIcons.length}
 							<div class="mt-4 flex flex-wrap items-center justify-center gap-4">
 								{#each supportingIcons as icon}
-									<img src={icon} alt="project icon" class="invertible-image h-14 w-14 object-contain" />
+									{#if platformIconSet.has(icon)}
+										<span
+											class="theme-text-icon h-16 w-16"
+											style={`--icon-url: url('${icon}');`}
+											aria-hidden="true"
+										></span>
+									{:else}
+										<img
+											src={icon}
+											alt="project icon"
+											class={`h-fit w-16 object-contain ${darkModeInvertedIconSet.has(icon) ? 'invertible-image' : ''}`}
+										/>
+									{/if}
 								{/each}
 							</div>
 						{/if}

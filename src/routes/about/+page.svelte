@@ -37,27 +37,33 @@
 	const skillPreview = skills.slice(0, 3);
 </script>
 
+<svelte:head>
+	<title>About | Osmond Lee</title>
+</svelte:head>
+
 <div class="min-h-screen" style={pageStyle}>
 	<Header />
 
 	<main class="mx-auto w-full max-w-5xl px-6 pb-14 pt-4 sm:px-10 sm:pt-6">
 		<section class="border-t border-slate-500 pt-2 sm:pt-3" style={sectionBorderStyle}>
 			<h1 class="text-4xl leading-tight sm:text-5xl md:text-6xl" style={headingStyle}>About Me!</h1>
-			<div class="mt-4 space-y-4 text-base leading-relaxed sm:text-lg">
+			<div class="mt-4 space-y-4 text-base leading-relaxed sm:text-xl">
 				<p>
 					Hey! I'm Osmond Lee, I'm a undergraduate at the University of Illinois Urbana Champaign (UIUC) majoring in computer science with a minor in game studies and design.
 				</p>
 				<p>
 					I currently work as a gameplay programmer and playtester at the Stu/Dio, a student-led game studio here on campus that works with professors to deliver games under their vision and budget. 
+				</p>
+				<p>
 					As of right now, I'm working on VRRocketry and DART, a VR game built in Unreal Engine 5 and a mobile title built in Unity, respectively.
 				</p>
 				<p>
-					I'm personally interested in a lot of things, but some of my biggest interests as of right now are:
+					I'm personally interested in a lot of things, but some of my main interests as of right now are:
 				</p>
 				<ul class="list-disc space-y-1 pl-6">
 					<li>E-Sports (Valorant, CS2, Overwatch, Smash, etc.)</li>
 					<li>Game design and player psychology, especially in multiplayer titles</li>
-					<li>Playing games (I play a LOT of games)</li>
+					<li>Cooking (I get creative in the kitchen)</li>
 					<li>MINECRAFT AND POKEMON RAHHHHHH</li>
 				</ul>
 			</div>
@@ -101,6 +107,8 @@
 				{/each}
 			</ul>
 		</section> -->
+
+		<p class="mt-4 space-y-4 text-base">Fun Fact: I drew the favicon myself! As you can probably see, I'm not very good at art T_T</p>
 	</main>
 </div>
 

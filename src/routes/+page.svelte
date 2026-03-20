@@ -10,6 +10,10 @@
     const cardBorderStyle = `border-color: ${AccentGold};`;
 </script>
 
+<svelte:head>
+	<title>My Work | Osmond Lee</title>
+</svelte:head>
+
 <div class="min-h-screen" style={pageStyle}>
     <Header />
 

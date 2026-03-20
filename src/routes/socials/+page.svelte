@@ -18,6 +18,10 @@
 	];
 </script>
 
+<svelte:head>
+	<title>Socials | Osmond Lee</title>
+</svelte:head>
+
 <div class="min-h-screen" style={pageStyle}>
 	<Header />
 

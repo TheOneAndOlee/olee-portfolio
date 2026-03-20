@@ -7,12 +7,18 @@ import godot from '$lib/assets/tools/Godot_Dark.svg';
 import unity from '$lib/assets/tools/Unity_Dark.svg';
 import unrealEngine from '$lib/assets/tools/Unreal_Engine_Dark.svg';
 import githubIcon from '$lib/assets/socials/github.png';
-import perforce from '$lib/assets/tools/Perforce.svg'
-import jira from '$lib/assets/tools/Jira.png'
-import slack from '$lib/assets/tools/Slack.svg'
+import perforce from '$lib/assets/tools/Perforce.svg';
+import jira from '$lib/assets/tools/Jira.png';
+import slack from '$lib/assets/tools/Slack.svg';
 
 import fishFracasThumbnail from '$lib/assets/thumbnails/FishFracas.png';
-import facThumbnail from '$lib/assets/thumbnails/FAC_Mockup.svg'
+import facThumbnail from '$lib/assets/thumbnails/FAC_Mockup.svg';
+import vrrThumbnail from '$lib/assets/thumbnails/VRRocketry2.png';
+import dartThumbnail from '$lib/assets/thumbnails/DART.png';
+
+
+import vrrDemoVideo from '$lib/assets/videos/VRRDemoVideo.mp4';
+import dartDemoVideo from '$lib/assets/videos/DARTDemoVideo.mp4';
 
 /**
  * @param {string[] | string | null | undefined} summaryPoints
@@ -34,15 +40,17 @@ function normalizeSummaryPoints(summaryPoints) {
         .map((line) => line.replace(/^[-*]\s+/, ''));
 }
 
+const darkModeInvertedProjectDescriptionIcons = [githubIcon, unrealEngine, unity, godot];
+
 const projectList = [
     {
         id: 1,
         slug: 'vrrocketry',
         name: 'VRRocketry',
         platforms: [oculus],
-        image: '',
+        image: vrrThumbnail,
         imageVerticalAlign: 'middle',
-        video: '',
+        video: vrrDemoVideo,
         gameEngine: { name: 'Unreal Engine 5', icon: unrealEngine },
         detailLines: [
             'Role: Programmer',
@@ -70,11 +78,10 @@ const projectList = [
         slug: 'dart',
         name: 'DART',
         platforms: [android, ios],
-        image: '',
+        image: dartThumbnail,
         imageVerticalAlign: 'middle',
-        video: '',
+        video: dartDemoVideo,
         gameEngine: { name: 'Unity', icon: unity },
-        // description: 'A mobile title designed to teach the elderly about real-world scams.',
         detailLines: [
             'Role: Programmer',
             'Duration: 11 Weeks (Ongoing)',
@@ -167,6 +174,7 @@ const projectList = [
 
 export const projects = projectList.map((project) => ({
     ...project,
+    darkModeInvertedIcons: darkModeInvertedProjectDescriptionIcons,
     content: project.content
         ? {
             ...project.content,
