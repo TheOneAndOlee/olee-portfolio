@@ -2,9 +2,9 @@
 	import { colors } from '$lib/data/colors';
 
 	let { name = "Platform", icon = "", link = "#" } = $props();
-	const { TextWhite, HoverWhite, BackgroundBlack, AccentGold } = colors;
-	const buttonStyle = `background-color: ${TextWhite}; color: ${BackgroundBlack}; border: 1px solid ${AccentGold}; --contact-hover-bg: ${HoverWhite};`;
-	const placeholderStyle = `background-color: ${HoverWhite}; border: 2px solid ${AccentGold};`;
+	const { AccentGold } = colors;
+	const buttonStyle = `background-color: var(--color-control-bg); color: var(--color-control-fg); border: 1px solid ${AccentGold}; --contact-hover-bg: var(--color-control-hover-bg);`;
+	const placeholderStyle = `background-color: var(--color-control-hover-bg); border: 2px solid ${AccentGold};`;
 </script>
 
 <a 
