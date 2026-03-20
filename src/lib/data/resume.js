@@ -1,3 +1,8 @@
+import dpiLogo from '$lib/assets/organizations/DPI-logo.svg';
+import ieLogo from '$lib/assets/organizations/Illini-Esports.png';
+import studioLogo from '$lib/assets/organizations/Studio.png';
+import gamebuildersLogo from '$lib/assets/organizations/Gamebuilders.png'
+
 export const skills = [
 	{ label: 'Languages', items: ['C++', 'C#', 'GDScript', 'Kotlin', 'Python'] },
 	{
@@ -24,9 +29,8 @@ export const activitySections = [
                     '**Maintain** code base quality by conducting regular peer reviews using Perforce and Helix Swarm.'
                 ],
 				logo: {
-					variant: 'badge',
-					text: ['stu/', 'dio'],
-					textColorClass: 'text-slate-800'
+					imageSrc: studioLogo,
+					imageAlt: 'Stu/Dio Logo'
 				}
 			},
             {
@@ -39,9 +43,8 @@ export const activitySections = [
                     '**Developed** practical skills in technical interviews, AI, and entrepreneurship by completing 14 workshops on tech career topics.',
                 ],
 				logo: {
-					variant: 'badge',
-					text: ['DPI'],
-					textColorClass: 'text-slate-800'
+					imageSrc: dpiLogo,
+					imageAlt: 'Discovery Partners Institute logo'
 				}
 			}
 		]
@@ -60,8 +63,8 @@ export const activitySections = [
                     '**Coordinate and supervise** weekly community events to drive server growth and player engagement.'
                 ],
                 logo: {
-                    variant: 'badge',
-                    text: ['IE']
+                    imageSrc: ieLogo,
+					imageAlt: "Illini Esports Logo"
                 }
             },
 			{
@@ -74,9 +77,8 @@ export const activitySections = [
                     '**Gained** experience in a game development pipeline, collaborating directly with artists and programmers on asset implementation.'
                 ],
 				logo: {
-					variant: 'badge',
-					text: ['GB'],
-					textColorClass: 'text-indigo-900'
+					imageSrc: gamebuildersLogo,
+					imageAlt: 'Gamebuilders'
 				}
 			}
 		]

@@ -49,11 +49,11 @@ declare module '$env/static/private' {
 	export const ComSpec: string;
 	export const DriverData: string;
 	export const EDITOR: string;
-	export const EFC_30016_1262719628: string;
-	export const EFC_30016_1592913036: string;
-	export const EFC_30016_2283032206: string;
-	export const EFC_30016_2775293581: string;
-	export const EFC_30016_3789132940: string;
+	export const EFC_35560_1262719628: string;
+	export const EFC_35560_1592913036: string;
+	export const EFC_35560_2283032206: string;
+	export const EFC_35560_2775293581: string;
+	export const EFC_35560_3789132940: string;
 	export const FPS_BROWSER_APP_PROFILE_STRING: string;
 	export const FPS_BROWSER_USER_PROFILE_STRING: string;
 	export const GIT_ASKPASS: string;
@@ -69,6 +69,7 @@ declare module '$env/static/private' {
 	export const LOCALAPPDATA: string;
 	export const LOGONSERVER: string;
 	export const NODE: string;
+	export const NODE_ENV: string;
 	export const npm_command: string;
 	export const npm_config_cache: string;
 	export const npm_config_engine_strict: string;
@@ -127,7 +128,6 @@ declare module '$env/static/private' {
 	export const VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 	export const windir: string;
 	export const ZES_ENABLE_SYSMAN: string;
-	export const __COMPAT_LAYER: string;
 }
 
 /**
@@ -225,11 +225,11 @@ declare module '$env/dynamic/private' {
 		ComSpec: string;
 		DriverData: string;
 		EDITOR: string;
-		EFC_30016_1262719628: string;
-		EFC_30016_1592913036: string;
-		EFC_30016_2283032206: string;
-		EFC_30016_2775293581: string;
-		EFC_30016_3789132940: string;
+		EFC_35560_1262719628: string;
+		EFC_35560_1592913036: string;
+		EFC_35560_2283032206: string;
+		EFC_35560_2775293581: string;
+		EFC_35560_3789132940: string;
 		FPS_BROWSER_APP_PROFILE_STRING: string;
 		FPS_BROWSER_USER_PROFILE_STRING: string;
 		GIT_ASKPASS: string;
@@ -245,6 +245,7 @@ declare module '$env/dynamic/private' {
 		LOCALAPPDATA: string;
 		LOGONSERVER: string;
 		NODE: string;
+		NODE_ENV: string;
 		npm_command: string;
 		npm_config_cache: string;
 		npm_config_engine_strict: string;
@@ -303,7 +304,6 @@ declare module '$env/dynamic/private' {
 		VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 		windir: string;
 		ZES_ENABLE_SYSMAN: string;
-		__COMPAT_LAYER: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}

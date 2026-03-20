@@ -1,6 +1,9 @@
 {
 	"/": [],
 	"/about": [],
-	"/contact": [],
-	"/resume": []
+	"/projects/[slug]": [
+		"src/routes/projects/[slug]/+page.ts"
+	],
+	"/resume": [],
+	"/socials": []
 }

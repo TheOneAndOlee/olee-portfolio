@@ -1,12 +1,18 @@
 <script lang="ts">
+	import { colors } from '$lib/data/colors';
+
 	let { name = "Platform", icon = "", link = "#" } = $props();
+	const { TextWhite, HoverWhite, BackgroundBlack, AccentGold } = colors;
+	const buttonStyle = `background-color: ${TextWhite}; color: ${BackgroundBlack}; border: 1px solid ${AccentGold}; --contact-hover-bg: ${HoverWhite};`;
+	const placeholderStyle = `background-color: ${HoverWhite}; border: 2px solid ${AccentGold};`;
 </script>
 
 <a 
 	href={link} 
 	target="_blank" 
 	rel="noopener noreferrer"
-	class="flex flex-col items-center gap-4 bg-neutral-300 p-6 w-full hover:bg-neutral-400 transition-colors"
+	class="contact-button flex w-full flex-col items-center gap-4 p-6 transition-colors"
+	style={buttonStyle}
 >
 	<div class="w-24 h-24 flex items-center justify-center">
 		{#if icon}
@@ -16,8 +22,14 @@
 				class="w-full h-full object-contain"
 			/>
 		{:else}
-			<div class="w-full h-full bg-neutral-200 border-2 border-black"></div>
+			<div class="h-full w-full" style={placeholderStyle}></div>
 		{/if}
 	</div>
 	<span class="text-lg font-medium">{name}</span>
 </a>
+
+<style>
+	.contact-button:hover {
+		background-color: var(--contact-hover-bg);
+	}
+</style>

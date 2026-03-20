@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { colors } from '$lib/data/colors';
+
 	type ResumeActivity = {
 		id: string;
 		organization: string;
@@ -25,6 +27,7 @@
 
 	const formatPoint = (point: string) =>
 		escapeHtml(point).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+	const roleStyle = `color: ${colors.HoverWhite};`;
 </script>
 
 <article class="grid grid-cols-1 gap-4 py-4 sm:grid-cols-[6.25rem_1fr] sm:gap-6">
@@ -52,7 +55,7 @@
 
 	<div>
 		<h3 class="text-2xl leading-tight sm:text-3xl">{activity.organization}</h3>
-		<p class="text-sm italic text-slate-700 sm:text-base">{activity.role}</p>
+		<p class="text-sm italic sm:text-base" style={roleStyle}>{activity.role}</p>
 		<ul class="mt-1 list-disc pl-6 text-sm sm:text-base">
 			{#each activity.points as point}
 				<li>{@html formatPoint(point)}</li>

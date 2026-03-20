@@ -27,18 +27,20 @@ export {};
 
 declare module "$app/types" {
 	export interface AppTypes {
-		RouteId(): "/" | "/about" | "/contact" | "/resume";
+		RouteId(): "/" | "/about" | "/projects" | "/projects/[slug]" | "/resume" | "/socials";
 		RouteParams(): {
-			
+			"/projects/[slug]": { slug: string }
 		};
 		LayoutParams(): {
-			"/": Record<string, never>;
+			"/": { slug?: string };
 			"/about": Record<string, never>;
-			"/contact": Record<string, never>;
-			"/resume": Record<string, never>
+			"/projects": { slug?: string };
+			"/projects/[slug]": { slug: string };
+			"/resume": Record<string, never>;
+			"/socials": Record<string, never>
 		};
-		Pathname(): "/" | "/about" | "/contact" | "/resume";
+		Pathname(): "/" | "/about" | `/projects/${string}` & {} | "/resume" | "/socials";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/fonts/Atkinson-Hyperlegible-Next-Italic.woff2" | "/fonts/Atkinson-Hyperlegible-Next.woff2" | "/logos/README.md" | "/README.md" | "/resume.pdf" | "/robots.txt" | string & {};
+		Asset(): "/colors.json" | "/fonts/Atkinson-Hyperlegible-Next-Italic.woff2" | "/fonts/Atkinson-Hyperlegible-Next.woff2" | "/logos/README.md" | "/README.md" | "/resume.pdf" | "/robots.txt" | string & {};
 	}
 }
