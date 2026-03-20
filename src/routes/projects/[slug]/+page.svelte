@@ -154,8 +154,6 @@
 	<Header />
 
 	<main class="mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 pb-16 pt-8 sm:px-8 md:px-12">
-		<a href="/" class="back-link w-fit border px-4 py-1 text-sm" style={backLinkStyle}>Back to my work</a>
-
 		<section class="flex flex-col gap-4">
 			<h1 class="text-center text-4xl font-semibold leading-none sm:text-5xl md:text-6xl" style={headingStyle}>{project.name}</h1>
 
@@ -223,7 +221,7 @@
 						{/if}
 
 						{#if actions.length}
-							<div class="mt-5 border-t border-black/30 pt-4">
+							<div class="mt-5 border-t border-black/30 pt-4" style={accentBorderStyle}>
 								<div class={actionContainerClass}>
 									{#each actions as action}
 										<div class={actionItemClass}>
@@ -273,6 +271,10 @@
 				</div>
 			</div>
 		</section>
+
+		<div class="flex justify-center">
+			<a href="/" class="back-link border px-4 py-1 text-sm" style={backLinkStyle}>Back to my work</a>
+		</div>
 	</main>
 </div>
 

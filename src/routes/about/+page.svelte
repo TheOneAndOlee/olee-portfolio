@@ -108,7 +108,7 @@
 			</ul>
 		</section> -->
 
-		<p class="mt-4 space-y-4 text-base">Fun Fact: I drew the favicon myself! As you can probably see, I'm not very good at art T_T</p>
+		<p class="mt-4 space-y-4 text-base">Fun Fact: I drew the favicon myself! It's supposed to be a computer mouse, but as you can probably see, I'm not very good at art T_T</p>
 	</main>
 </div>
 

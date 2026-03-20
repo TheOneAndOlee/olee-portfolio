@@ -61,7 +61,7 @@ const projectList = [
         supportingIcons: [unrealEngine, perforce, jira],
         content: {
             introductionTitle: 'Project Introduction',
-            introduction: 'An educational rocketry simulation in VR, made in collaboration with Pohang University of Science and Technology (POSTECH).',
+            introduction: 'An educational rocketry simulation in VR, made possible through the APEC-APRU Academic Exchange Program grant with POSTECH, South Korea',
             summaryTitle: 'Summary of Work',
             summaryPoints: `
                 - **Delivered a sponsor-driven VR application**, collaborating with artists and designers to translate client requirements into actionable technical design documents.
