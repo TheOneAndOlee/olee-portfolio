@@ -1,6 +1,0 @@
-{
-	"files.associations": {
-		"*.css": "tailwindcss"
-	},
-	"discord.enabled": true
-}
