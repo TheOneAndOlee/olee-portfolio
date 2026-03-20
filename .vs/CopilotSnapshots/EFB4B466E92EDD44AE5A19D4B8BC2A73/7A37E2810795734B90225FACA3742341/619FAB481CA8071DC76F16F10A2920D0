@@ -1,8 +1,0 @@
-﻿<nav class="flex items-center justify-between px-12 py-8">
-	<a href="/" class="text-4xl font-normal" style="color: #556b2f;">Osmond Lee</a>
-	<div class="flex gap-16 text-2xl">
-		<a href="/resume" class="hover:opacity-70">Resume</a>
-		<a href="/about" class="hover:opacity-70">About</a>
-		<a href="/contact" class="hover:opacity-70">Contact</a>
-	</div>
-</nav>
