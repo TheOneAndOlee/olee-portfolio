@@ -140,7 +140,7 @@
 	const headingStyle = `color: ${AccentGold};`;
 	const accentBorderStyle = `border-color: ${AccentGold};`;
 	const backLinkStyle = `border-color: ${AccentGold}; color: ${TextWhite}; --back-hover-bg: ${HoverWhite}; --back-hover-text: ${BackgroundBlack};`;
-	const actionButtonStyle = `border-color: ${AccentGold}; background-color: ${TextWhite}; color: ${BackgroundBlack}; --action-hover-bg: ${HoverWhite};`;
+	const actionButtonStyle = `border-color: ${AccentGold}; background-color: var(--color-control-bg); color: var(--color-control-fg); --action-hover-bg: var(--color-control-hover-bg);`;
 </script>
 
 <div class="min-h-screen" style={pageStyle}>
@@ -190,7 +190,7 @@
 						{#if supportingIcons.length}
 							<div class="mt-4 flex flex-wrap items-center justify-center gap-4">
 								{#each supportingIcons as icon}
-									<img src={icon} alt="project icon" class="h-14 w-14 object-contain" />
+									<img src={icon} alt="project icon" class="invertible-image h-14 w-14 object-contain" />
 								{/each}
 							</div>
 						{/if}

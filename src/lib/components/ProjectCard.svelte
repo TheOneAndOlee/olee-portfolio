@@ -33,10 +33,10 @@
 	}
 
 	const normalizedImageVerticalAlign = $derived(normalizeImageVerticalAlign(imageVerticalAlign));
-	const { TextWhite, HoverWhite, BackgroundBlack, AccentGold } = colors;
-	const mediaFrameStyle = `border-color: ${AccentGold}; background-color: ${TextWhite};`;
-	const engineBadgeStyle = `background-color: ${HoverWhite}; color: ${BackgroundBlack};`;
-	const moreButtonStyle = `border-color: ${AccentGold}; background-color: ${TextWhite}; color: ${BackgroundBlack}; --more-hover-bg: ${HoverWhite};`;
+	const { AccentGold } = colors;
+	const mediaFrameStyle = `border-color: ${AccentGold}; background-color: var(--color-control-bg);`;
+	const engineBadgeStyle = `background-color: var(--color-control-hover-bg); color: var(--color-control-fg);`;
+	const moreButtonStyle = `border-color: ${AccentGold}; background-color: var(--color-control-bg); color: var(--color-control-fg); --more-hover-bg: var(--color-control-hover-bg); --more-hover-text: var(--color-control-fg);`;
 
 	function getContainFillRatio(imageWidth: number, imageHeight: number): number {
 		if (imageWidth <= 0 || imageHeight <= 0) {
@@ -70,7 +70,7 @@
 		{#if platforms && platforms.length > 0}
 			<div class="flex items-center gap-2">
 				{#each platforms as platform}
-					<img src={platform} alt="platform" class="h-7 w-7 object-contain" />
+					<img src={platform} alt="platform" class="invertible-image h-7 w-7 object-contain" />
 				{/each}
 			</div>
 		{/if}
@@ -115,5 +115,6 @@
 
 	.more-link:hover {
 		background-color: var(--more-hover-bg);
+		color: var(--more-hover-text);
 	}
 </style>
