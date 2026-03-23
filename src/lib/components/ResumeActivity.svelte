@@ -36,7 +36,7 @@
 			<img
 				src={activity.logo.imageSrc}
 				alt={activity.logo.imageAlt ?? `${activity.organization} logo`}
-				class="h-full w-full object-contain"
+				class={`h-full w-full object-contain ${activity.id === 'studio-illinois' ? 'brightness-8' : ''}`}
 			/>
 		{:else if activity.logo?.variant === 'wordmark'}
 			<div class="flex h-full w-full flex-col items-start justify-center text-left font-semibold leading-none {activity.logo?.textColorClass ?? 'text-slate-800'}">
