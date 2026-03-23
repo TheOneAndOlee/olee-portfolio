@@ -9,7 +9,7 @@
 	const nameStyle = `color: ${AccentGold};`;
 	const navLinksStyle = `color: ${TextWhite};`;
 	const themeToggleStyle = `border-color: ${AccentGold};`;
-	let theme = $state<Theme>('dark');
+	let theme = $state<Theme>('light');
 
 	const themeToggleLabel = $derived(theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
 	const themeToggleText = $derived(theme === 'dark' ? 'Light' : 'Dark');
@@ -38,8 +38,7 @@
 			return;
 		}
 
-		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-		const nextTheme: Theme = prefersDark ? 'dark' : 'light';
+		const nextTheme: Theme = 'light';
 
 		applyTheme(nextTheme);
 	});
@@ -62,14 +61,3 @@
 		</button> -->
 	</div>
 </nav>
-
-<style>
-	.theme-toggle {
-		transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
-	}
-
-	.theme-toggle:hover {
-		background-color: var(--color-accent);
-		color: var(--color-bg);
-	}
-</style>

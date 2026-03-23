@@ -205,7 +205,7 @@
 										<img
 											src={icon}
 											alt="project icon"
-											class={`h-fit w-16 object-contain ${darkModeInvertedIconSet.has(icon) ? 'invertible-image' : ''}`}
+											class={`h-10 w-auto max-w-28 object-contain`}
 										/>
 									{/if}
 								{/each}
@@ -271,6 +271,7 @@
 				</div>
 			</div>
 		</section>
+
 
 		<div class="flex justify-center">
 			<a href="/" class="back-link border px-4 py-1 text-sm" style={backLinkStyle}>Back to my work</a>

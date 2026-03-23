@@ -1,4 +1,4 @@
-import dpiLogo from '$lib/assets/organizations/DPI-logo.svg';
+import dpiLogo from '$lib/assets/organizations/DPI-logo.png';
 import ieLogo from '$lib/assets/organizations/Illini-Esports.png';
 import studioLogo from '$lib/assets/organizations/Studio.png';
 import gamebuildersLogo from '$lib/assets/organizations/Gamebuilders.png'
