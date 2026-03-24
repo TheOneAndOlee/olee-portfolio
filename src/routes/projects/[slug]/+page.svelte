@@ -140,7 +140,7 @@
 	const actionItemClass = $derived(actionCount === 1 ? 'w-full max-w-64' : 'w-full max-w-64 sm:w-64');
 	const { TextWhite, HoverWhite, BackgroundBlack, AccentGold } = colors;
 	const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;
-	const headingStyle = `color: ${AccentGold};`;
+	const headingStyle = `color: ${TextWhite};`;
 	const accentBorderStyle = `border-color: ${AccentGold};`;
 	const backLinkStyle = `border-color: ${AccentGold}; color: ${TextWhite}; --back-hover-bg: ${HoverWhite}; --back-hover-text: ${BackgroundBlack};`;
 	const actionButtonStyle = `border-color: ${AccentGold}; background-color: var(--color-control-bg); color: var(--color-control-fg); --action-hover-bg: var(--color-control-hover-bg);`;

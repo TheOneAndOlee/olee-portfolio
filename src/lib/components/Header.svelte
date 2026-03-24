@@ -6,7 +6,7 @@
 
 	const storageKey = 'portfolio-theme';
 	const { TextWhite, AccentGold } = colors;
-	const nameStyle = `color: ${AccentGold};`;
+	const nameStyle = `color: ${TextWhite};`;
 	const navLinksStyle = `color: ${TextWhite};`;
 	const themeToggleStyle = `border-color: ${AccentGold};`;
 	let theme = $state<Theme>('light');
