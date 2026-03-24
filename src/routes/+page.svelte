@@ -6,7 +6,7 @@
 
     const { TextWhite, BackgroundBlack, AccentGold } = colors;
     const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;
-    const headingStyle = `color: ${AccentGold};`;
+    const headingStyle = `color: ${TextWhite};`;
     const cardBorderStyle = `border-color: ${AccentGold};`;
 </script>
 
