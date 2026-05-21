@@ -21,7 +21,7 @@
 	<main class="mx-auto w-full max-w-5xl px-6 pb-14 pt-4 sm:px-10 sm:pt-6">
 		<div class="mb-6 flex justify-end">
 			<a
-				href="/resume.pdf"
+				href="/Osmond_Lee_28_V8.pdf"
 				download
 				class="inline-flex items-center rounded-md border px-4 py-2 text-sm font-semibold transition hover:bg-white/10 sm:text-base"
 				style={downloadButtonStyle}
