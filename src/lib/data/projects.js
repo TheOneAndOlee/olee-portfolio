@@ -12,12 +12,14 @@ import perforce from '$lib/assets/tools/Perforce.svg';
 import jira from '$lib/assets/tools/Jira.png';
 import slack from '$lib/assets/tools/Slack.svg';
 import diversion from '$lib/assets/tools/Diversion.png';
+import visualStudio from '$lib/assets/tools/VisualStudio.png';
 
 import fishFracasThumbnail from '$lib/assets/thumbnails/FishFracas.png';
 import facThumbnail from '$lib/assets/thumbnails/FACMockup.svg';
 import vrrThumbnail from '$lib/assets/thumbnails/VRRocketry2.png';
 import dartThumbnail from '$lib/assets/thumbnails/DART.png';
 import infernalCycleThumbnail from '$lib/assets/thumbnails/InfernalCycle.png';
+import partySchoolThumbnail from '$lib/assets/thumbnails/PartySchool.png';
 
 import { idText } from 'typescript';
 
@@ -94,10 +96,10 @@ const projectList = [
             'Duration: 19 Weeks (Ongoing)',
             'Team: 5 Members\\n1 Programmer, 1 PM, 3 Play-Testers'
         ],
-        supportingIcons: [unity, jira],
+        supportingIcons: [unity, jira, visualStudio],
         content: { 
             introductionTitle: 'Project Introduction',
-            introduction: 'A mobile title designed to teach the elderly about real-world scams',
+            introduction: 'A mobile title designed to teach the elderly about real-world scams.',
             summaryTitle: 'Summary of Work',
             summaryPoints: `
                  - **Resolved bugs and engineered new features** for an existing Unity mobile game, translating playtester feedback into actionable improvements.
@@ -150,22 +152,24 @@ const projectList = [
         imageVerticalAlign: 'middle',
         videos: ['/videos/InfernalCycleDemo.mp4', '/videos/InfernalCycleCodeOverview.mp4'],
         videoCaptions: [
-            'A demo showcasing the game at the end of the semester. A lot of features were implemented, but I didn\'t have time to add more content.',
-            'A code overview where I go through the codebase and explain some of the systems I implemented.'
+            'A showcase of the game at the end of the semester. A lot of features were implemented, but I didn\'t have time to add more content.',
+            'A video where I go through the codebase and explain some of the systems I implemented.'
         ],
         gameEngine: { name: 'Unity', icon: unity },
         detailLines: [
             '**Role:** Programmer & Designer',
-            '**Duration:** 16 Weeks (A Semester)',
+            '**Duration:** 15 Weeks (A Semester)',
             '**Team:** 5 Members\\n1 Programmers, 2 Artists, 1 Audio Engineer, 1 PM'
         ],
-        supportingIcons: [unity, githubIcon, jira],
+        supportingIcons: [unity, githubIcon, jira, visualStudio],
         content: {
             introductionTitle: 'Project Introduction',
-            introduction: 'A 2D platformer roguelite made for GSD 405: Intro to Game Development Processes, where I worked with a multi-disciplinary team to iterate on previous design documents and create a prototype.',
+            introduction: 'A 2D action-adventure prototype developed for GSD 405: Intro to Game Development Processes, where I served as the sole engineer collaborating with a multi-disciplinary team to bring design documents to life.',
             summaryTitle: 'Summary of Work',
             summaryPoints: `
-                 - **Programmed core gameplay mechanics** for a 3D action-adventure game in Unity, including combat systems, enemy AI, and player controls.
+                 - **Architected and programmed all core technical systems** in Unity as the sole programmer, building scalable frameworks from the ground up for 2D platforming physics, combat mechanics, and enemy AI.
+                 - **Facilitated cross-disciplinary asset integration**, collaborating directly with artists and audio engineers to seamlessly implement 2D sprite animations, images, and soundscapes into the game engine.
+                 - **Engineered combat and shop logic**, creating responsive player controls and varied shop behaviors to build an engaging gameplay loop.
             `
         },
         actions: [
@@ -177,7 +181,7 @@ const projectList = [
         slug: 'party-school',
         name: 'Party School',
         platforms: [windows],
-        image: '',
+        image: partySchoolThumbnail,
         imageVerticalAlign: 'middle',
         video: '',
         gameEngine: { name: 'Unreal Engine 5', icon: unrealEngine },
@@ -189,10 +193,12 @@ const projectList = [
         supportingIcons: [unrealEngine, diversion],
         content: {
             introductionTitle: 'Project Introduction',
-            introduction: '',
+            introduction: 'A multiplayer prop-hunt prototype developed over 10 weeks, focusing on network connectivity and multiple engaging core game mechanics.',
             summaryTitle: 'Summary of Work',
             summaryPoints: `
-                - **Implemented a multiplayer system** in Unreal Engine 5 using the Advanced Steam Sessions plugin.
+                - **Engineered a robust multiplayer framework** in Unreal Engine 5 using the Advanced Steam Sessions plugin, enabling reliable lobby creation and player connectivity.
+                - **Prototyped core prop-hunt mechanics**, programming the logic and systems required for players to disguise themselves, interact with the environment, and navigate the game loop.
+                - **Authored comprehensive design documentation**, establishing clear guidelines for mechanics to align the five-person team throughout the development cycle.
             `
         },
         actions: [
