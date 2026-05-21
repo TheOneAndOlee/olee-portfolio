@@ -1,5 +1,5 @@
-import dpiLogo from '$lib/assets/organizations/DPI-logo.png';
-import ieLogo from '$lib/assets/organizations/Illini-Esports.png';
+import dpiLogo from '$lib/assets/organizations/DPI.png';
+import ieLogo from '$lib/assets/organizations/IlliniEsports.png';
 import studioLogo from '$lib/assets/organizations/Studio.png';
 import gamebuildersLogo from '$lib/assets/organizations/Gamebuilders.png'
 
@@ -23,9 +23,8 @@ export const activitySections = [
 				role: 'Gameplay Programmer',
 				points: [
                     '**Collaborated** with designers, programmers, and sponsors to **implement** a Computational Fluid Dynamics (CFD) visualizer using UE5’s Niagara Particle System, Blueprints, and C++.', 
-                    '**Engineered** modular UI interfaces in Unreal Engine 5, **resolving** critical UI bugs and **enhancing** user experience.', 
-                    '**Designed and implemented** a user-interactive level, enabling the user to rotate and choose between 2 planes to simulate.',
-                    '**Translated** user feedback into actionable gameplay improvements by implementing and refining features for a mobile title in Unity.',
+                    '**Engineered** modular UI interfaces in Unreal Engine 5, to render real-world CFD meshes generated collaboratively using OpenFOAM.', 
+                    '**Translated** user and playtester feedback into actionable gameplay improvements for a Unity mobile title, managing the macOS build pipeline to ship a major version update to the iOS App Store.',
                     '**Maintain** code base quality by conducting regular peer reviews using Perforce and Helix Swarm.'
                 ],
 				logo: {
