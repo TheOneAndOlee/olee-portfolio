@@ -19,12 +19,6 @@ import vrrThumbnail from '$lib/assets/thumbnails/VRRocketry2.png';
 import dartThumbnail from '$lib/assets/thumbnails/DART.png';
 import infernalCycleThumbnail from '$lib/assets/thumbnails/InfernalCycle.png';
 
-import vrrDemoVideo from '$lib/assets/videos/VRRDemoVideo.mp4';
-import vrrDemoVideo2 from '$lib/assets/videos/VRRDemoVideo2.MOV';
-import dartDemoVideo from '$lib/assets/videos/DARTDemoVideo.mp4';
-import infernalCycleDemoVideo from '$lib/assets/videos/InfernalCycleDemo.mp4';
-import infernalCycleCodeOverview from '$lib/assets/videos/InfernalCycleCodeOverview.mp4';
-
 import { idText } from 'typescript';
 
 /**
@@ -57,7 +51,7 @@ const projectList = [
         platforms: [oculus],
         image: vrrThumbnail,
         imageVerticalAlign: 'middle',
-        videos: [vrrDemoVideo, vrrDemoVideo2],
+        videos: ['/videos/VRRDemoVideo.mp4', '/videos/VRRDemoVideo2.MOV'],
         videoCaptions: [
             'A demo video showcasing our first iteration of the CFD visualizer, using the Niagara Particle System.',
             'A demo video showcasing the new CFD visualization. I\'m the one playing the game in the beige hoodie.',
@@ -92,7 +86,7 @@ const projectList = [
         platforms: [android, ios],
         image: dartThumbnail,
         imageVerticalAlign: 'middle',
-        video: dartDemoVideo,
+        video: '/videos/DARTDemoVideo.mp4',
         videoCaption: 'A video showing the tutorial button I implemented, allowing users to go back to the tutorials',
         gameEngine: { name: 'Unity', icon: unity },
         detailLines: [
@@ -154,7 +148,7 @@ const projectList = [
         platforms: [windows],
         image: infernalCycleThumbnail,
         imageVerticalAlign: 'middle',
-        videos: [infernalCycleDemoVideo, infernalCycleCodeOverview],
+        videos: ['/videos/InfernalCycleDemo.mp4', '/videos/InfernalCycleCodeOverview.mp4'],
         videoCaptions: [
             'A demo showcasing the game at the end of the semester. A lot of features were implemented, but I didn\'t have time to add more content.',
             'A code overview where I go through the codebase and explain some of the systems I implemented.'
