@@ -6,9 +6,9 @@
 
 	const storageKey = 'portfolio-theme';
 	const { TextWhite, AccentGold } = colors;
-	const nameStyle = `color: ${AccentGold};`;
+	const nameStyle = `color: ${TextWhite};`;
 	const navLinksStyle = `color: ${TextWhite};`;
-	const themeToggleStyle = `border-color: ${AccentGold};`;
+	const themeToggleStyle = `border-color: ${AccentGold}; color: ${TextWhite};`;
 	let theme = $state<Theme>('light');
 
 	const themeToggleLabel = $derived(theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');

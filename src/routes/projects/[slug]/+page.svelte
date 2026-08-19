@@ -140,7 +140,7 @@
 	const actionItemClass = $derived(actionCount === 1 ? 'w-full max-w-64' : 'w-full max-w-64 sm:w-64');
 	const { TextWhite, HoverWhite, BackgroundBlack, AccentGold } = colors;
 	const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;
-	const headingStyle = `color: ${AccentGold};`;
+	const headingStyle = `color: ${TextWhite};`;
 	const accentBorderStyle = `border-color: ${AccentGold};`;
 	const backLinkStyle = `border-color: ${AccentGold}; color: ${TextWhite}; --back-hover-bg: ${HoverWhite}; --back-hover-text: ${BackgroundBlack};`;
 	const actionButtonStyle = `border-color: ${AccentGold}; background-color: var(--color-control-bg); color: var(--color-control-fg); --action-hover-bg: var(--color-control-hover-bg);`;
@@ -157,10 +157,10 @@
 		<section class="flex flex-col gap-4">
 			<h1 class="text-center text-4xl font-semibold leading-none sm:text-5xl md:text-6xl" style={headingStyle}>{project.name}</h1>
 
-			<div class="border-y border-black/30" style={accentBorderStyle}>
+			<div class="border-y" style={accentBorderStyle}>
 				<div class="grid gap-0 md:grid-cols-[1fr_2fr]">
 					<div class="border-b p-4 md:border-b-0 md:border-r md:p-5" style={accentBorderStyle}>
-						<div class="w-full border border-black/15 bg-neutral-200">
+						<div class="w-full border bg-neutral-200" style={accentBorderStyle}>
 							{#if videoUrl}
 								{#if isDirectVideoFile}
 									<!-- svelte-ignore a11y_media_has_caption -->
@@ -186,7 +186,7 @@
 							{:else if project.image}
 								<img src={project.image} alt={project.name} class="block h-auto w-full" />
 							{:else}
-								<div class="flex min-h-56 items-center justify-center px-4 text-center text-sm text-neutral-500">
+								<div class="flex min-h-56 items-center justify-center px-4 text-center text-sm opacity-70">
 									Project image coming soon (Awaiting Sponsor Approval)
 								</div>
 							{/if}
@@ -221,7 +221,7 @@
 						{/if}
 
 						{#if actions.length}
-							<div class="mt-5 border-t border-black/30 pt-4" style={accentBorderStyle}>
+							<div class="mt-5 border-t pt-4" style={accentBorderStyle}>
 								<div class={actionContainerClass}>
 									{#each actions as action}
 										<div class={actionItemClass}>
@@ -263,7 +263,7 @@
 										{/each}
 									</ul>
 								{:else}
-									<p class="mt-2 text-base leading-snug text-neutral-500 md:text-lg">Summary of work coming soon.</p>
+									<p class="mt-2 text-base leading-snug opacity-70 md:text-lg">Summary of work coming soon.</p>
 								{/if}
 							</div>
 						</div>

@@ -6,7 +6,7 @@
 
     const { TextWhite, BackgroundBlack, AccentGold } = colors;
     const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;
-    const headingStyle = `color: ${AccentGold};`;
+    const headingStyle = `color: ${TextWhite};`;
     const cardBorderStyle = `border-color: ${AccentGold};`;
 </script>
 
@@ -24,7 +24,7 @@
             <div class="overflow-hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 -mb-0.5 md:-mr-0.5">
                     {#each projects as project (project.id)}
-                        <div class="border-black border-b-2 border-r-0 md:border-r-2 border-solid p-6 md:p-8 lg:p-10" style={cardBorderStyle}>
+                        <div class="border-b-2 border-r-0 md:border-r-2 border-solid p-6 md:p-8 lg:p-10" style={cardBorderStyle}>
                             <ProjectCard
                                 name={project.name}
                                 platforms={project.platforms}
