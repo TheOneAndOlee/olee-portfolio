@@ -14,11 +14,13 @@
 
 	const formatPoint = (point: string) =>
 		escapeHtml(point).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-	const roleStyle = `color: ${colors.HoverWhite};`;
+	const { TextWhite, AccentGold } = colors;
+	const roleStyle = `color: ${TextWhite};`;
+	const placeholderLogoStyle = `border-color: ${AccentGold}; color: ${TextWhite};`;
 </script>
 
-<article class="grid grid-cols-1 gap-4 py-4 sm:grid-cols-[6.25rem_1fr] sm:gap-6">
-	<div class="flex h-24 w-24 items-center justify-center sm:h-28 sm:w-28">
+<article class="grid grid-cols-1 items-start gap-4 sm:grid-cols-[6rem_1fr] sm:gap-6">
+	<div class="flex h-20 w-20 shrink-0 items-center justify-center sm:h-24 sm:w-24">
 		{#if activity.logo?.imageSrc}
 			<img
 				src={activity.logo.imageSrc}
@@ -31,7 +33,7 @@
 					.logo?.textColorClass ?? 'text-slate-800'}"
 			>
 				{#each activity.logo?.text ?? [activity.organization.slice(0, 2).toUpperCase()] as logoLine}
-					<span class="text-4xl sm:text-5xl">{logoLine}</span>
+					<span class="text-3xl sm:text-4xl">{logoLine}</span>
 				{/each}
 			</div>
 		{:else}
@@ -40,7 +42,7 @@
 				style={placeholderLogoStyle}
 			>
 				{#each activity.logo?.text ?? [activity.organization.slice(0, 2).toUpperCase()] as logoLine}
-					<span class="text-2xl sm:text-3xl">{logoLine}</span>
+					<span class="text-xl sm:text-2xl">{logoLine}</span>
 				{/each}
 			</div>
 		{/if}

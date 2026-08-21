@@ -9,7 +9,7 @@
 
 	const { TextWhite, BackgroundBlack } = colors;
 	const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;
-	const headingStyle = `color: ${AccentGold};`;
+	const headingStyle = `color: ${TextWhite};`;
 
 	const contacts: ContactItem[] = [
 		{ name: 'GitHub', icon: githubIcon, link: 'https://github.com/TheOneAndOlee' },
