@@ -1,16 +1,24 @@
 <script lang="ts">
 	import { colors } from '$lib/data/colors';
+	import type { GameEngine, ImageVerticalAlign } from '$lib/types';
 
-	type ImageVerticalAlign = 'top' | 'middle' | 'bottom';
+	interface Props {
+		name?: string;
+		link?: string;
+		image?: string;
+		platforms?: string[];
+		gameEngine?: GameEngine | null;
+		imageVerticalAlign?: ImageVerticalAlign | string;
+	}
 
 	let {
-		name = "Name",
-		link = "#",
-		image = "",
+		name = 'Name',
+		link = '#',
+		image = '',
 		platforms = [],
 		gameEngine = null,
 		imageVerticalAlign = 'middle'
-	} = $props();
+	}: Props = $props();
 
 	const CONTAINER_ASPECT_RATIO = 16 / 9;
 	const MIN_IMAGE_FILL_RATIO = 2 / 3;
@@ -60,12 +68,14 @@
 		const containFillRatio = getContainFillRatio(target.naturalWidth, target.naturalHeight);
 
 		imageScale =
-			containFillRatio >= MIN_IMAGE_FILL_RATIO ? 1 : Math.sqrt(MIN_IMAGE_FILL_RATIO / containFillRatio);
+			containFillRatio >= MIN_IMAGE_FILL_RATIO
+				? 1
+				: Math.sqrt(MIN_IMAGE_FILL_RATIO / containFillRatio);
 	}
 </script>
 
-<div class="flex flex-col items-start gap-3 w-full">
-	<div class="flex items-center justify-between w-full">
+<div class="flex w-full flex-col items-start gap-3">
+	<div class="flex w-full items-center justify-between">
 		<span class="text-xl">{name}</span>
 		{#if platforms && platforms.length > 0}
 			<div class="flex items-center gap-2">
@@ -82,9 +92,9 @@
 		style={mediaFrameStyle}
 	>
 		{#if image}
-			<img 
-				src={image} 
-				alt={name} 
+			<img
+				src={image}
+				alt={name}
 				onload={handleImageLoad}
 				class={`block h-full w-full object-contain transition-transform duration-200 ease-out ${objectPositionClassByAlign[normalizedImageVerticalAlign]} ${transformOriginClassByAlign[normalizedImageVerticalAlign]}`}
 				style={`transform: scale(${imageScale});`}
@@ -94,11 +104,19 @@
 		{/if}
 
 		{#if gameEngine?.icon}
-			<div class="absolute bottom-2 right-2 px-2 py-1">
-				<img src={gameEngine.icon} alt={gameEngine.name} title={gameEngine.name} class="h-12 w-auto object-contain" />
+			<div class="absolute right-2 bottom-2 px-2 py-1">
+				<img
+					src={gameEngine.icon}
+					alt={gameEngine.name}
+					title={gameEngine.name}
+					class="h-12 w-auto object-contain"
+				/>
 			</div>
 		{:else if gameEngine?.name}
-			<div class="absolute bottom-2 right-2 px-2 py-1 text-xs leading-none" style={engineBadgeStyle}>
+			<div
+				class="absolute right-2 bottom-2 px-2 py-1 text-xs leading-none"
+				style={engineBadgeStyle}
+			>
 				{gameEngine.name}
 			</div>
 		{/if}

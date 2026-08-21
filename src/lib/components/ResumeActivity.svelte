@@ -1,21 +1,6 @@
 <script lang="ts">
 	import { colors } from '$lib/data/colors';
-
-	type ResumeActivity = {
-		id: string;
-		organization: string;
-		role: string;
-		date?: string;
-		location?: string;
-		points: string[];
-		logo?: {
-			variant?: string;
-			imageSrc?: string;
-			imageAlt?: string;
-			text?: string[];
-			textColorClass?: string;
-		};
-	};
+	import type { ResumeActivity } from '$lib/types';
 
 	let { activity } = $props<{ activity: ResumeActivity }>();
 
@@ -40,16 +25,22 @@
 			<img
 				src={activity.logo.imageSrc}
 				alt={activity.logo.imageAlt ?? `${activity.organization} logo`}
-				class={`h-full w-full object-contain ${activity.id === 'studio-illinois' ? 'brightness-8' : ''}`}
+				class={`h-full w-full object-contain ${activity.id === 'studio-illinois' ? 'invert-on-light' : ''}`}
 			/>
 		{:else if activity.logo?.variant === 'wordmark'}
-			<div class="flex h-full w-full flex-col items-start justify-center text-left font-semibold leading-none {activity.logo?.textColorClass ?? 'text-slate-800'}">
+			<div
+				class="flex h-full w-full flex-col items-start justify-center text-left leading-none font-semibold {activity
+					.logo?.textColorClass ?? 'text-slate-800'}"
+			>
 				{#each activity.logo?.text ?? [activity.organization.slice(0, 2).toUpperCase()] as logoLine}
 					<span class="text-3xl sm:text-4xl">{logoLine}</span>
 				{/each}
 			</div>
 		{:else}
-			<div class="flex h-full w-full flex-col items-center justify-center rounded-full border-2 px-2 text-center font-semibold leading-none" style={placeholderLogoStyle}>
+			<div
+				class="flex h-full w-full flex-col items-center justify-center rounded-full border-2 px-2 text-center leading-none font-semibold"
+				style={placeholderLogoStyle}
+			>
 				{#each activity.logo?.text ?? [activity.organization.slice(0, 2).toUpperCase()] as logoLine}
 					<span class="text-xl sm:text-2xl">{logoLine}</span>
 				{/each}
@@ -58,17 +49,20 @@
 	</div>
 
 	<div class="flex flex-col">
-		<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5 sm:gap-4">
-			<h3 class="text-xl font-semibold leading-tight sm:text-2xl">{activity.organization}</h3>
+		<div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+			<h3 class="text-xl leading-tight font-semibold sm:text-2xl">{activity.organization}</h3>
 			{#if activity.location}
-				<span class="text-sm font-normal opacity-75 sm:text-base shrink-0">{activity.location}</span>
+				<span class="shrink-0 text-sm font-normal opacity-75 sm:text-base">{activity.location}</span
+				>
 			{/if}
 		</div>
 
-		<div class="mt-0.5 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5 sm:gap-4">
+		<div
+			class="mt-0.5 flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+		>
 			<p class="text-sm italic opacity-85 sm:text-base" style={roleStyle}>{activity.role}</p>
 			{#if activity.date}
-				<span class="text-sm italic opacity-75 sm:text-base shrink-0">{activity.date}</span>
+				<span class="shrink-0 text-sm italic opacity-75 sm:text-base">{activity.date}</span>
 			{/if}
 		</div>
 

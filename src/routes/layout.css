@@ -20,7 +20,7 @@
 	--color-text: #1c1e1e;
 	--color-hover: #1c1e1e;
 	--color-bg: #f8f9e2;
-	--color-accent: #FD951E;
+	--color-accent: #fd951e;
 	--color-control-bg: #d8d9c8;
 	--color-control-fg: #1c1e1e;
 	--color-control-hover-bg: #f8f9e2;
@@ -32,7 +32,7 @@
 	--color-text: #1c1e1e;
 	--color-hover: #1c1e1e;
 	--color-bg: #f8f9e2;
-	--color-accent: #FD951E;
+	--color-accent: #fd951e;
 	--color-control-bg: #d8d9c8;
 	--color-control-fg: #1c1e1e;
 	--color-control-hover-bg: #f8f9e2;
@@ -68,4 +68,13 @@ iframe {
 
 .invertible-image {
 	filter: var(--theme-image-filter);
+}
+
+.invert-on-light {
+	filter: invert(1);
+}
+
+:root[data-theme='dark'] .invert-on-light,
+.dark .invert-on-light {
+	filter: none;
 }
