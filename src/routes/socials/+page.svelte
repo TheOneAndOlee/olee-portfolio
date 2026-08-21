@@ -8,7 +8,7 @@
 
 	const { TextWhite, BackgroundBlack, AccentGold } = colors;
 	const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;
-	const headingStyle = `color: ${TextWhite};`;
+	const headingStyle = `color: ${AccentGold};`;
 
 	// Update these with your actual social media links
 	const contacts = [
