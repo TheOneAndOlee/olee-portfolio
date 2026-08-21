@@ -6,9 +6,7 @@
 
 	const { TextWhite, BackgroundBlack, AccentGold } = colors;
 	const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;
-	const headingStyle = `color: ${AccentGold};`;
-	const sectionBorderStyle = `border-color: ${AccentGold};`;
-	const downloadButtonStyle = `border-color: ${AccentGold}; color: ${TextWhite};`;
+	const headingStyle = `color: ${TextWhite};`;
 </script>
 
 <svelte:head>
@@ -18,17 +16,8 @@
 <div class="min-h-screen" style={pageStyle}>
 	<Header />
 
-	<main class="mx-auto w-full max-w-5xl px-6 pb-14 pt-4 sm:px-10 sm:pt-6">
-		<div class="mb-6 flex justify-end">
-			<a
-				href="/Osmond_Lee_28_V8.pdf"
-				download
-				class="inline-flex items-center rounded-md border px-4 py-2 text-sm font-semibold transition hover:bg-white/10 sm:text-base"
-				style={downloadButtonStyle}
-			>
-				Download Resume
-			</a>
-		</div>
+	<main class="flex flex-col items-center pb-16 pt-8">
+		<h1 class="mb-12 text-4xl font-normal sm:text-5xl md:mb-16 md:text-6xl" style={headingStyle}>Resume</h1>
 
 		<div class="mt-6 space-y-6 sm:space-y-8">
 			{#each activitySections as section}

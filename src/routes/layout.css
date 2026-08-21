@@ -30,10 +30,10 @@
 :root[data-theme='light'] {
 	color-scheme: light;
 	--color-text: #1c1e1e;
-	--color-hover: #323535;
-	--color-bg: #f6f6ef;
-	--color-accent: #A46017;
-	--color-control-bg: #ffffff;
+	--color-hover: #1c1e1e;
+	--color-bg: #f8f9e2;
+	--color-accent: #FD951E;
+	--color-control-bg: #d8d9c8;
 	--color-control-fg: #1c1e1e;
 	--color-control-hover-bg: #ececdf;
 	--theme-image-filter: none;

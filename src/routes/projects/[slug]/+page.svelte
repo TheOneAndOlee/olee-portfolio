@@ -199,14 +199,16 @@
 			<div class="border-y border-black/30" style={accentBorderStyle}>
 				<div class="grid gap-0 md:grid-cols-[1fr_2fr]">
 					<div class="border-b p-4 md:border-b-0 md:border-r md:p-5" style={accentBorderStyle}>
-						<div class="flex flex-col gap-3 w-full">
-							<div class="flex items-center gap-2 sm:gap-4 w-full">
-								{#if videos.length > 1}
-									<button 
-										class="flex-shrink-0 bg-transparent p-1 transition-opacity opacity-60 hover:opacity-100 focus:outline-none focus:ring-2 rounded-full hidden sm:block"
-										style="color: var(--color-text);"
-										onclick={() => currentVideoIndex = (clampedVideoIndex - 1 + videos.length) % videos.length}
-										aria-label="Previous video"
+						<div class="w-full border bg-neutral-200" style={accentBorderStyle}>
+							{#if videoUrl}
+								{#if isDirectVideoFile}
+									<!-- svelte-ignore a11y_media_has_caption -->
+									<video
+										src={videoUrl}
+										controls
+										playsinline
+										preload="metadata"
+										class="block aspect-video w-full bg-black"
 									>
 										<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
 									</button>
@@ -278,26 +280,11 @@
 										<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
 									</button>
 								{/if}
-							</div>
-
-							{#if videos.length > 1}
-								<!-- Dot indicators moved below the video box -->
-								<div class="flex justify-center gap-2">
-									{#each videos as _, i}
-										<button 
-											class="pointer-events-auto w-2.5 h-2.5 rounded-full transition-opacity focus:outline-none focus:ring-2 {i === clampedVideoIndex ? 'opacity-100' : 'opacity-30 hover:opacity-60'}"
-											style="background-color: var(--color-text);"
-											aria-label={`Go to video ${i + 1}`}
-											aria-current={i === clampedVideoIndex ? 'true' : undefined}
-											onclick={() => currentVideoIndex = i}
-										></button>
-									{/each}
-								</div>
-							{/if}
-
-							{#if currentCaption}
-								<div class="text-center text-sm md:text-base opacity-80 mt-1 italic">
-									{@html formatInlineMarkdown(currentCaption)}
+							{:else if project.image}
+								<img src={project.image} alt={project.name} class="block h-auto w-full" />
+							{:else}
+								<div class="flex min-h-56 items-center justify-center px-4 text-center text-sm opacity-70">
+									Project image coming soon (Awaiting Sponsor Approval)
 								</div>
 							{/if}
 						</div>
