@@ -12,9 +12,9 @@
 	{@html `
 		<style>
 			:root, :root[data-theme='light'] {
-				--color-text: ${colors.BackgroundBlack};
-				--color-hover: ${colors.BackgroundBlack};
-				--color-bg: ${colors.HoverWhite};
+				--color-text: ${colors.TextWhite};
+				--color-hover: ${colors.HoverWhite};
+				--color-bg: ${colors.BackgroundBlack};
 				--color-accent: ${colors.AccentGold};
 				--color-control-bg: ${colors.TextWhite};
 				--color-control-fg: ${colors.BackgroundBlack};

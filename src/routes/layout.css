@@ -16,15 +16,15 @@
 }
 
 :root {
-	color-scheme: light;
-	--color-text: #1c1e1e;
-	--color-hover: #1c1e1e;
-	--color-bg: #f8f9e2;
+	color-scheme: dark;
+	--color-text: #d8d9c8;
+	--color-hover: #f8f9e2;
+	--color-bg: #1c1e1e;
 	--color-accent: #FD951E;
 	--color-control-bg: #d8d9c8;
 	--color-control-fg: #1c1e1e;
 	--color-control-hover-bg: #f8f9e2;
-	--theme-image-filter: none;
+	--theme-image-filter: invert(1) brightness(1.05);
 }
 
 :root[data-theme='light'] {
@@ -35,7 +35,7 @@
 	--color-accent: #FD951E;
 	--color-control-bg: #d8d9c8;
 	--color-control-fg: #1c1e1e;
-	--color-control-hover-bg: #f8f9e2;
+	--color-control-hover-bg: #ececdf;
 	--theme-image-filter: none;
 }
 
