@@ -196,9 +196,10 @@
 		<section class="flex flex-col gap-4">
 			<h1 class="text-center text-4xl font-semibold leading-none sm:text-5xl md:text-6xl" style={headingStyle}>{project.name}</h1>
 
-			<div class="border-y border-black/30" style={accentBorderStyle}>
+			<div class="border-y" style={accentBorderStyle}>
 				<div class="grid gap-0 md:grid-cols-[1fr_2fr]">
 					<div class="border-b p-4 md:border-b-0 md:border-r md:p-5" style={accentBorderStyle}>
+<<<<<<< HEAD
 						<div class="flex flex-col gap-3 w-full">
 							<div class="flex items-center gap-2 sm:gap-4 w-full">
 								{#if videos.length > 1}
@@ -207,10 +208,23 @@
 										style="color: var(--color-text);"
 										onclick={() => currentVideoIndex = (clampedVideoIndex - 1 + videos.length) % videos.length}
 										aria-label="Previous video"
+=======
+						<div class="w-full border bg-neutral-200" style={accentBorderStyle}>
+							{#if videoUrl}
+								{#if isDirectVideoFile}
+									<!-- svelte-ignore a11y_media_has_caption -->
+									<video
+										src={videoUrl}
+										controls
+										playsinline
+										preload="metadata"
+										class="block aspect-video w-full bg-black"
+>>>>>>> LaptopCanadaResume
 									>
 										<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
 									</button>
 								{/if}
+<<<<<<< HEAD
 
 								<div class="w-full border border-black/15 bg-neutral-200 relative flex-1">
 									{#if videoUrl}
@@ -298,6 +312,13 @@
 							{#if currentCaption}
 								<div class="text-center text-sm md:text-base opacity-80 mt-1 italic">
 									{@html formatInlineMarkdown(currentCaption)}
+=======
+							{:else if project.image}
+								<img src={project.image} alt={project.name} class="block h-auto w-full" />
+							{:else}
+								<div class="flex min-h-56 items-center justify-center px-4 text-center text-sm opacity-70">
+									Project image coming soon (Awaiting Sponsor Approval)
+>>>>>>> LaptopCanadaResume
 								</div>
 							{/if}
 						</div>
@@ -341,7 +362,7 @@
 						{/if}
 
 						{#if actions.length}
-							<div class="mt-5 border-t border-black/30 pt-4" style={accentBorderStyle}>
+							<div class="mt-5 border-t pt-4" style={accentBorderStyle}>
 								<div class={actionContainerClass}>
 									{#each actions as action}
 										<div class={actionItemClass}>
@@ -383,7 +404,7 @@
 										{/each}
 									</ul>
 								{:else}
-									<p class="mt-2 text-base leading-snug text-neutral-500 md:text-lg">Summary of work coming soon.</p>
+									<p class="mt-2 text-base leading-snug opacity-70 md:text-lg">Summary of work coming soon.</p>
 								{/if}
 							</div>
 						</div>
