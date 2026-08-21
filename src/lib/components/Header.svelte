@@ -45,8 +45,8 @@
 </script>
 
 <nav class="flex flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-8 sm:py-6 lg:px-12 lg:py-8">
-	<a href="/" class="text-xl font-normal sm:text-3xl lg:text-4xl" style={nameStyle}>Osmond Lee</a>
-	<div class="flex items-center gap-3 text-sm sm:gap-6 sm:text-xl lg:gap-8 lg:text-2xl" style={navLinksStyle}>
+	<a href="/" class="text-2xl font-normal sm:text-3xl lg:text-4xl" style={nameStyle}>Osmond Lee</a>
+	<div class="flex items-center gap-3 text-base sm:gap-6 sm:text-xl lg:gap-8 lg:text-2xl" style={navLinksStyle}>
 		<a href="/resume" class="hover:opacity-70">Resume</a>
 		<a href="/about" class="hover:opacity-70">About</a>
 		<a href="/socials" class="hover:opacity-70">Socials</a>

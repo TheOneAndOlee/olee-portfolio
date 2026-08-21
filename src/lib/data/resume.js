@@ -1,5 +1,5 @@
-import dpiLogo from '$lib/assets/organizations/DPI-logo.png';
-import ieLogo from '$lib/assets/organizations/Illini-Esports.png';
+import dpiLogo from '$lib/assets/organizations/DPI.png';
+import ieLogo from '$lib/assets/organizations/IlliniEsports.png';
 import studioLogo from '$lib/assets/organizations/Studio.png';
 import gamebuildersLogo from '$lib/assets/organizations/Gamebuilders.png'
 import gengLogo from '$lib/assets/organizations/Gen.G.png'
