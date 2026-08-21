@@ -24,7 +24,7 @@
 	--color-control-bg: #d8d9c8;
 	--color-control-fg: #1c1e1e;
 	--color-control-hover-bg: #f8f9e2;
-	--theme-image-filter: none;
+	--theme-image-filter: invert(1) brightness(1.05);
 }
 
 :root[data-theme='light'] {
@@ -35,7 +35,7 @@
 	--color-accent: #fd951e;
 	--color-control-bg: #d8d9c8;
 	--color-control-fg: #1c1e1e;
-	--color-control-hover-bg: #f8f9e2;
+	--color-control-hover-bg: #ececdf;
 	--theme-image-filter: none;
 }
 

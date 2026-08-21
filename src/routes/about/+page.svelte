@@ -1,12 +1,40 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
 	import { colors } from '$lib/data/colors';
-	import headshot from '$lib/assets/betterHeadshot.webp';
+	import { skills } from '$lib/data/resume.js';
 
-	const { TextWhite, BackgroundBlack, AccentGold } = colors;
+	const { TextWhite, HoverWhite, BackgroundBlack, AccentGold } = colors;
 	const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;
-	const headingStyle = `color: ${TextWhite};`;
-	const headshotBorderStyle = `border-color: ${AccentGold};`;
+	const headingStyle = `color: ${AccentGold};`;
+	const sectionBorderStyle = `border-color: ${AccentGold};`;
+	const focusCardStyle = `border-color: ${AccentGold};`;
+	const linkStyle = `border-color: ${AccentGold}; color: ${TextWhite}; --about-link-hover-bg: ${HoverWhite}; --about-link-hover-text: ${BackgroundBlack};`;
+
+	const focusAreas = [
+		{
+			title: 'Gameplay Systems',
+			description:
+				'I build mechanics from prototype to polished feature, with a focus on readability, modularity, and player feedback loops.'
+		},
+		{
+			title: 'Cross-Disciplinary Collaboration',
+			description:
+				'I enjoy working with designers, artists, and producers to convert goals into technical plans and shippable milestones.'
+		},
+		{
+			title: 'Iterative Development',
+			description:
+				'I rely on playtests and bug triage to refine balance, improve UX clarity, and keep releases stable week over week.'
+		}
+	];
+
+	const currentHighlights = [
+		'Shipping sponsor-driven VR and mobile features in Unreal Engine 5 and Unity.',
+		'Building portfolio-ready technical documentation and cleaner gameplay architecture.',
+		'Expanding full-stack and frontend skills with Svelte to communicate projects clearly.'
+	];
+
+	const skillPreview = skills.slice(0, 3);
 </script>
 
 <svelte:head>
@@ -34,7 +62,9 @@
 							class="h-auto w-full object-cover object-center md:h-full"
 						/>
 					</div>
-
+			</div>
+		</section>
+			<section>
 					<div
 						class="flex flex-1 flex-col justify-between space-y-4 text-base leading-relaxed sm:text-xl md:space-y-0"
 					>
@@ -71,8 +101,17 @@
 					</ul>
 				</div>
 			</section>
-
 			<!-- <p class="mt-6 text-base">Fun Fact: I drew the favicon myself! It's supposed to be a computer mouse, but as you can probably see, I'm not very good at art T_T</p> -->
 		</div>
 	</main>
-</div>
+
+<style>
+	.about-link {
+		transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+	}
+
+	.about-link:hover {
+		background-color: var(--about-link-hover-bg);
+		color: var(--about-link-hover-text);
+	}
+</style>

@@ -8,7 +8,7 @@
 	const { TextWhite, AccentGold } = colors;
 	const nameStyle = `color: ${TextWhite};`;
 	const navLinksStyle = `color: ${TextWhite};`;
-	const themeToggleStyle = `border-color: ${AccentGold}; color: ${TextWhite};`;
+	const themeToggleStyle = `border-color: ${AccentGold};`;
 	let theme = $state<Theme>('light');
 
 	const themeToggleLabel = $derived(
