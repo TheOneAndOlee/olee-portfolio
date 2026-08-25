@@ -1,6 +1,5 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
 	import colors from '$lib/data/colors.json';
 
 	let { children } = $props();
@@ -8,7 +7,7 @@
 
 <svelte:head>
 	<title>Osmond Lee</title>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="/favicon.svg" />
 	{@html `
 		<style>
 			:root, :root[data-theme='light'] {

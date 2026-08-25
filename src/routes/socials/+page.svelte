@@ -3,18 +3,15 @@
 	import ContactButton from '$lib/components/ContactButton.svelte';
 	import { colors } from '$lib/data/colors';
 	import type { ContactItem } from '$lib/types';
-	import githubIcon from '$lib/assets/socials/github.png';
-	import linkedinIcon from '$lib/assets/socials/LinkedIn.png';
-	import emailIcon from '$lib/assets/socials/email.png';
 
 	const { TextWhite, BackgroundBlack } = colors;
 	const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;
 	const headingStyle = `color: ${TextWhite};`;
 
 	const contacts: ContactItem[] = [
-		{ name: 'GitHub', icon: githubIcon, link: 'https://github.com/TheOneAndOlee' },
-		{ name: 'LinkedIn', icon: linkedinIcon, link: 'https://linkedin.com/in/toao' },
-		{ name: 'Email', icon: emailIcon, link: 'mailto:toaodeveloper@gmail.com' }
+		{ name: 'GitHub', icon: '/socials/github.png', link: 'https://github.com/TheOneAndOlee' },
+		{ name: 'LinkedIn', icon: '/socials/LinkedIn.png', link: 'https://linkedin.com/in/toao' },
+		{ name: 'Email', icon: '/socials/email.png', link: 'mailto:toaodeveloper@gmail.com' }
 	];
 </script>
 

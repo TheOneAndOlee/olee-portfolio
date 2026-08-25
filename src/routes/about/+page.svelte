@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
 	import { colors } from '$lib/data/colors';
-	import headshot from '$lib/assets/betterHeadshot.webp';
+
+	const headshot = '/betterHeadshot.webp';
 
 	const { TextWhite, BackgroundBlack, AccentGold } = colors;
 	const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;

@@ -1,9 +1,9 @@
-import dpiLogo from '$lib/assets/organizations/DPI.png';
-import ieLogo from '$lib/assets/organizations/IlliniEsports.png';
-import studioLogo from '$lib/assets/organizations/Studio.png';
-import gamebuildersLogo from '$lib/assets/organizations/Gamebuilders.png';
-import gengLogo from '$lib/assets/organizations/Gen.G.png';
-import uiucLogo from '$lib/assets/organizations/UIUC.png';
+const dpiLogo = '/organizations/DPI.png';
+const ieLogo = '/organizations/IlliniEsports.png';
+const studioLogo = '/organizations/Studio.png';
+const gamebuildersLogo = '/organizations/Gamebuilders.png';
+const gengLogo = '/organizations/Gen.G.png';
+const uiucLogo = '/organizations/UIUC.png';
 
 export const skills = [
 	{ label: 'Languages', items: ['C++', 'C#', 'GDScript', 'Kotlin', 'Python'] },
