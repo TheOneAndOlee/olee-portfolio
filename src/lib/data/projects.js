@@ -20,8 +20,7 @@ import vrrThumbnail from '$lib/assets/thumbnails/VRRocketry2.png';
 import dartThumbnail from '$lib/assets/thumbnails/DART.png';
 import infernalCycleThumbnail from '$lib/assets/thumbnails/InfernalCycle.png';
 import partySchoolThumbnail from '$lib/assets/thumbnails/PartySchool.png';
-
-import { idText } from 'typescript';
+import dimSumThumbnail from '$lib/assets/thumbnails/DimSumItUp.png';
 
 /**
  * @param {string[] | string | null | undefined} summaryPoints
@@ -93,7 +92,7 @@ const projectList = [
         gameEngine: { name: 'Unity', icon: unity },
         detailLines: [
             'Role: Programmer',
-            'Duration: 19 Weeks (Ongoing)',
+            'Duration: 21 Weeks',
             'Team: 5 Members\\n1 Programmer, 1 PM, 3 Play-Testers'
         ],
         supportingIcons: [unity, jira, visualStudio],
@@ -235,6 +234,33 @@ const projectList = [
         },
         actions: [
             { label: 'Itch.Io Page', href: 'https://bigspajeti.itch.io/game-jam-tied' }
+        ]
+    },
+    {
+        id: 7,
+        slug: 'dim-sum',
+        name: 'Dim Sum It Up!',
+        platforms: [itchio, windows],
+        image: dimSumThumbnail,
+        imageVerticalAlign: 'middle',
+        video: '',
+        gameEngine: { name: 'Godot', icon: godot },
+        detailLines: [
+            'Role: Programmer and Designer',
+            'Duration: 48 Hours (Game Jam)',
+            'Team: 1 Member (Me)'
+        ],
+        supportingIcons: [godot, githubIcon],
+        content: {
+            introductionTitle: 'Project Introduction',
+            introduction: 'A simple game about maximizing your dim sum score, made for the AAPI Heritage Game Jam 2026.',
+            summaryTitle: 'Summary of Work',
+            summaryPoints: `
+                - **Engineered a simple 2D game** in GDScript, implementing a scoring system and basic player controls.
+            `
+        },
+        actions: [
+            { label: 'Itch.Io Page', href: 'https://idioticicecube.itch.io/dim-sum-it-up' }
         ]
     }
 ];
