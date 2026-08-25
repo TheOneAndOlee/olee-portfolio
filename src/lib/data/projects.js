@@ -20,6 +20,7 @@ import vrrThumbnail from '$lib/assets/thumbnails/VRRocketry2.png';
 import dartThumbnail from '$lib/assets/thumbnails/DART.png';
 import infernalCycleThumbnail from '$lib/assets/thumbnails/InfernalCycle.png';
 import partySchoolThumbnail from '$lib/assets/thumbnails/PartySchool.png';
+import dimSumThumbnail from '$lib/assets/thumbnails/DimSumItUp.png';
 
 /**
  * @param {string[] | string | null | undefined} summaryPoints
@@ -75,31 +76,32 @@ const projectList = [
                 - **Upgraded the CFD visualization system** to display real generated airflow data from OpenFOAM, replacing the previous procedural implementation.
                 - **Implemented interactive level mechanics**, programming 3D user interactions such as plane rotation and selection.            
             `
-		},
-		actions: [{}]
-	},
-	{
-		id: 2,
-		slug: 'dart',
-		name: 'DART',
-		platforms: [android, ios],
-		image: dartThumbnail,
-		imageVerticalAlign: 'middle',
-		video: '/videos/DARTDemoVideo.mp4',
-		videoCaption:
-			'A video showing the tutorial button I implemented, allowing users to go back to the tutorials',
-		gameEngine: { name: 'Unity', icon: unity },
-		detailLines: [
-			'Role: Programmer',
-			'Duration: 19 Weeks (Ongoing)',
-			'Team: 5 Members\\n1 Programmer, 1 PM, 3 Play-Testers'
-		],
-		supportingIcons: [unity, jira, visualStudio],
-		content: {
-			introductionTitle: 'Project Introduction',
-			introduction: 'A mobile title designed to teach the elderly about real-world scams.',
-			summaryTitle: 'Summary of Work',
-			summaryPoints: `
+        },
+        actions: [
+            { }
+        ]
+    },
+    {
+        id: 2,
+        slug: 'dart',
+        name: 'DART',
+        platforms: [android, ios],
+        image: dartThumbnail,
+        imageVerticalAlign: 'middle',
+        video: '/videos/DARTDemoVideo.mp4',
+        videoCaption: 'A video showing the tutorial button I implemented, allowing users to go back to the tutorials',
+        gameEngine: { name: 'Unity', icon: unity },
+        detailLines: [
+            'Role: Programmer',
+            'Duration: 21 Weeks',
+            'Team: 5 Members\\n1 Programmer, 1 PM, 3 Play-Testers'
+        ],
+        supportingIcons: [unity, jira, visualStudio],
+        content: { 
+            introductionTitle: 'Project Introduction',
+            introduction: 'A mobile title designed to teach the elderly about real-world scams.',
+            summaryTitle: 'Summary of Work',
+            summaryPoints: `
                  - **Resolved bugs and engineered new features** for an existing Unity mobile game, translating playtester feedback into actionable improvements.
                  - **Managed the Agile development cycle using Jira**, working closely with a Project Manager to track issues, prioritize tasks, and manage weekly sprints.
                  - **Shipped a major version update to the iOS App Store**, managing the macOS build pipeline and ensuring compliance with App Store guidelines.
@@ -228,9 +230,38 @@ const projectList = [
                 - **Debugged the knockback system**, ensuring functionality under the rope's constraints.
                 - **Collaborated in a team of 8** to implement experimental constraints to make a functional gameplay loop.
             `
-		},
-		actions: [{ label: 'Itch.Io Page', href: 'https://bigspajeti.itch.io/game-jam-tied' }]
-	}
+        },
+        actions: [
+            { label: 'Itch.Io Page', href: 'https://bigspajeti.itch.io/game-jam-tied' }
+        ]
+    },
+    {
+        id: 7,
+        slug: 'dim-sum',
+        name: 'Dim Sum It Up!',
+        platforms: [itchio, windows],
+        image: dimSumThumbnail,
+        imageVerticalAlign: 'middle',
+        video: '',
+        gameEngine: { name: 'Godot', icon: godot },
+        detailLines: [
+            'Role: Programmer and Designer',
+            'Duration: 48 Hours (Game Jam)',
+            'Team: 1 Member (Me)'
+        ],
+        supportingIcons: [godot, githubIcon],
+        content: {
+            introductionTitle: 'Project Introduction',
+            introduction: 'A simple game about maximizing your dim sum score, made for the AAPI Heritage Game Jam 2026.',
+            summaryTitle: 'Summary of Work',
+            summaryPoints: `
+                - **Engineered a simple 2D game** in GDScript, implementing a scoring system and basic player controls.
+            `
+        },
+        actions: [
+            { label: 'Itch.Io Page', href: 'https://idioticicecube.itch.io/dim-sum-it-up' }
+        ]
+    }
 ];
 
 export const projects = projectList.map((project) => ({
