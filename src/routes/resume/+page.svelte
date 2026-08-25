@@ -4,7 +4,7 @@
 	import { colors } from '$lib/data/colors';
 	import { activitySections, skills } from '$lib/data/resume.js';
 
-	const { TextWhite, BackgroundBlack, AccentGold } = colors;
+	const { TextWhite, BackgroundBlack } = colors;
 	const pageStyle = `background-color: ${BackgroundBlack}; color: ${TextWhite};`;
 	const headingStyle = `color: ${TextWhite};`;
 </script>
@@ -16,32 +16,42 @@
 <div class="min-h-screen" style={pageStyle}>
 	<Header />
 
-	<main class="flex flex-col items-center pb-16 pt-8">
-		<h1 class="mb-12 text-4xl font-normal sm:text-5xl md:mb-16 md:text-6xl" style={headingStyle}>Resume</h1>
+	<main class="flex flex-col items-center pt-8 pb-16">
+		<h1 class="mb-12 text-4xl font-normal sm:text-5xl md:mb-16 md:text-6xl" style={headingStyle}>
+			Resume
+		</h1>
 
-		<div class="mt-6 space-y-6 sm:space-y-8">
-			{#each activitySections as section}
-				<section class="border-t border-slate-500 pt-2 sm:pt-3" style={sectionBorderStyle}>
-					<h2 class="text-4xl leading-tight sm:text-5xl md:text-6xl" style={headingStyle}>{section.title}</h2>
-					<div class="mt-2 space-y-2">
-						{#each section.activities as activity (activity.id)}
-							<ResumeActivity {activity} />
+		<div class="w-full px-4 sm:px-8 md:px-12 lg:px-[15%] xl:px-[20%]">
+			<div class="space-y-14 sm:space-y-16 md:space-y-20">
+				{#each activitySections as section}
+					<section>
+						<h2 class="text-3xl font-semibold tracking-tight sm:text-4xl" style={headingStyle}>
+							{section.title}
+						</h2>
+						<div class="mt-6 space-y-8 sm:mt-8 sm:space-y-10">
+							{#each section.activities as activity (activity.id)}
+								<ResumeActivity {activity} />
+							{/each}
+						</div>
+					</section>
+				{/each}
+
+				<section>
+					<h2 class="text-3xl font-semibold tracking-tight sm:text-4xl" style={headingStyle}>
+						Skills
+					</h2>
+					<div class="mt-6 space-y-4 sm:mt-8 sm:space-y-5">
+						{#each skills as skill (skill.label)}
+							<div
+								class="grid grid-cols-1 gap-1 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6"
+							>
+								<h3 class="text-base font-semibold opacity-90 sm:text-lg">{skill.label}</h3>
+								<p class="text-sm leading-relaxed sm:text-base">{skill.items.join(', ')}</p>
+							</div>
 						{/each}
 					</div>
 				</section>
-			{/each}
-
-			<section class="border-t border-slate-500 pt-2 sm:pt-3" style={sectionBorderStyle}>
-				<h2 class="text-4xl leading-tight sm:text-5xl md:text-6xl" style={headingStyle}>Skills</h2>
-				<div class="mt-3 space-y-3 sm:space-y-4">
-					{#each skills as skill (skill.label)}
-						<div class="grid grid-cols-1 gap-1 sm:grid-cols-[13rem_1fr] sm:gap-4">
-							<h3 class="text-base font-semibold sm:text-lg">{skill.label}</h3>
-							<p class="text-sm sm:text-base">{skill.items.join(', ')}</p>
-						</div>
-					{/each}
-				</div>
-			</section>
+			</div>
 		</div>
 	</main>
 </div>
