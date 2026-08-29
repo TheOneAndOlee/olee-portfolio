@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { resolve } from '$app/paths';
+	import { reveal } from '$lib/actions/reveal';
 	import Header from '$lib/components/Header.svelte';
 	import { colors } from '$lib/data/colors';
 	import type { ProjectAction } from '$lib/types';
@@ -143,8 +145,9 @@
 
 	$effect(() => {
 		// Reset video index when project changes
-		project.slug;
-		currentVideoIndex = 0;
+		if (project.slug) {
+			currentVideoIndex = 0;
+		}
 	});
 
 	const clampedVideoIndex = $derived(
@@ -167,6 +170,11 @@
 	);
 	const actions = $derived(getProjectActions(project.actions));
 	const pageTitle = $derived(`${project?.name ?? 'Project'} | Osmond Lee`);
+	const pageDescription = $derived(
+		project.content?.introduction ?? `Project details for ${project.name} by Osmond Lee.`
+	);
+	const canonicalUrl = $derived(`https://toao.dev/projects/${project.slug}`);
+	const socialImageUrl = $derived(project.image ? `https://toao.dev${project.image}` : '');
 	const actionCount = $derived(actions.length);
 	const actionContainerClass = $derived(
 		actionCount === 1
@@ -188,6 +196,20 @@
 
 <svelte:head>
 	<title>{pageTitle}</title>
+	<meta name="description" content={pageDescription} />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content={pageTitle} />
+	<meta property="og:description" content={pageDescription} />
+	<meta property="og:url" content={canonicalUrl} />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={pageTitle} />
+	<meta name="twitter:description" content={pageDescription} />
+	<link rel="canonical" href={canonicalUrl} />
+	{#if socialImageUrl}
+		<meta property="og:image" content={socialImageUrl} />
+		<meta property="og:image:alt" content={`${project.name} project preview`} />
+		<meta name="twitter:image" content={socialImageUrl} />
+	{/if}
 </svelte:head>
 
 <div class="min-h-screen" style={pageStyle}>
@@ -196,13 +218,13 @@
 	<main class="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 pt-8 pb-16 sm:px-8 md:px-12">
 		<section class="flex flex-col gap-4">
 			<h1
-				class="text-center text-4xl leading-none font-semibold sm:text-5xl md:text-6xl"
+				class="page-title text-center text-4xl leading-none font-semibold sm:text-5xl md:text-6xl"
 				style={headingStyle}
 			>
 				{project.name}
 			</h1>
 
-			<div class="border-y" style={accentBorderStyle}>
+			<div data-reveal use:reveal={{ delay: 100 }} class="border-y" style={accentBorderStyle}>
 				<div class="grid gap-0 md:grid-cols-[1fr_2fr]">
 					<div class="border-b p-4 md:border-r md:border-b-0 md:p-5" style={accentBorderStyle}>
 						<div class="flex flex-col gap-3">
@@ -210,39 +232,43 @@
 								class="relative w-full overflow-hidden border bg-neutral-200"
 								style={accentBorderStyle}
 							>
-								{#if videoUrl}
-									<div class="relative aspect-video w-full bg-black">
-										{#if isDirectVideoFile}
-											<!-- svelte-ignore a11y_media_has_caption -->
-											<video
-												src={videoUrl}
-												controls
-												playsinline
-												preload="metadata"
-												class="block h-full w-full bg-black object-contain"
-											>
-												<p>Your browser does not support the video tag.</p>
-											</video>
+								{#key videoUrl}
+									<div class="media-content">
+										{#if videoUrl}
+											<div class="relative aspect-video w-full bg-black">
+												{#if isDirectVideoFile}
+													<!-- svelte-ignore a11y_media_has_caption -->
+													<video
+														src={videoUrl}
+														controls
+														playsinline
+														preload="metadata"
+														class="block h-full w-full bg-black object-contain"
+													>
+														<p>Your browser does not support the video tag.</p>
+													</video>
+												{:else}
+													<iframe
+														src={embedVideoUrl}
+														title={`${project.name} video`}
+														class="block h-full w-full border-0 bg-black"
+														loading="lazy"
+														allow="autoplay; encrypted-media; picture-in-picture; web-share"
+														allowfullscreen
+													></iframe>
+												{/if}
+											</div>
+										{:else if project.image}
+											<img src={project.image} alt={project.name} class="block h-auto w-full" />
 										{:else}
-											<iframe
-												src={embedVideoUrl}
-												title={`${project.name} video`}
-												class="block h-full w-full border-0 bg-black"
-												loading="lazy"
-												allow="autoplay; encrypted-media; picture-in-picture; web-share"
-												allowfullscreen
-											></iframe>
+											<div
+												class="flex min-h-56 items-center justify-center px-4 text-center text-sm opacity-70"
+											>
+												Project image coming soon (Awaiting Sponsor Approval)
+											</div>
 										{/if}
 									</div>
-								{:else if project.image}
-									<img src={project.image} alt={project.name} class="block h-auto w-full" />
-								{:else}
-									<div
-										class="flex min-h-56 items-center justify-center px-4 text-center text-sm opacity-70"
-									>
-										Project image coming soon (Awaiting Sponsor Approval)
-									</div>
-								{/if}
+								{/key}
 							</div>
 
 							{#if videos.length > 1}
@@ -313,7 +339,7 @@
 									Tools and Tech
 								</p>
 								<div class="flex flex-wrap items-center justify-center gap-4">
-									{#each supportingIcons as icon}
+									{#each supportingIcons as icon (icon)}
 										<img
 											src={icon}
 											alt="Tool or platform icon"
@@ -326,13 +352,14 @@
 
 						{#if detailLines.length}
 							<div class="mt-4 flex flex-col gap-3 text-xl leading-tight">
-								{#each detailLines as line, i}
+								{#each detailLines as line, i (i)}
 									{#if i > 0}
 										<hr class="border-black/30" style={accentBorderStyle} />
 									{/if}
 									<div class="space-y-1">
-										{#each line.split('\\n').flatMap((l) => l.split('\n')) as subline, j}
+										{#each line.split('\\n').flatMap((l) => l.split('\n')) as subline, j (j)}
 											<p class={j > 0 ? 'text-lg opacity-70' : ''}>
+												<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 												{@html formatInlineMarkdown(subline)}
 											</p>
 										{/each}
@@ -344,13 +371,14 @@
 						{#if actions.length}
 							<div class="mt-5 border-t pt-4" style={accentBorderStyle}>
 								<div class={actionContainerClass}>
-									{#each actions as action}
+									{#each actions as action (action.label)}
 										<div class={actionItemClass}>
 											{#if action.href}
+												<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 												<a
 													href={action.href}
 													target="_blank"
-													rel="noreferrer"
+													rel="external noreferrer"
 													class="action-link flex h-12 w-full items-center justify-center border text-2xl leading-none"
 													style={actionButtonStyle}
 												>
@@ -376,6 +404,7 @@
 							<div>
 								<h2 class="text-3xl leading-none">{introTitle}</h2>
 								<p class="mt-2 text-base leading-snug md:text-xl">
+									<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 									{@html formatInlineMarkdown(introText)}
 								</p>
 							</div>
@@ -384,7 +413,8 @@
 								<h2 class="text-3xl leading-none">{summaryTitle}</h2>
 								{#if summaryPoints.length}
 									<ul class="mt-2 list-disc space-y-1 pl-6 text-base leading-snug md:text-xl">
-										{#each summaryPoints as point}
+										{#each summaryPoints as point (point)}
+											<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 											<li>{@html formatInlineMarkdown(point)}</li>
 										{/each}
 									</ul>
@@ -401,7 +431,11 @@
 		</section>
 
 		<div class="flex justify-center">
-			<a href="/" class="back-link border px-6 py-2 text-sm font-medium" style={backButtonStyle}>
+			<a
+				href={resolve('/')}
+				class="back-link border px-6 py-2 text-sm font-medium"
+				style={backButtonStyle}
+			>
 				Back to my work
 			</a>
 		</div>
@@ -414,12 +448,24 @@
 	.carousel-nav-button {
 		transition:
 			background-color 150ms ease-in-out,
-			color 150ms ease-in-out;
+			color 150ms ease-in-out,
+			transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.back-link:hover,
 	.action-link:hover,
 	.carousel-nav-button:hover {
 		background-color: var(--color-control-hover-bg) !important;
+		transform: translateY(-0.12rem);
+	}
+
+	.media-content {
+		animation: media-in 280ms ease-out both;
+	}
+
+	@keyframes media-in {
+		from {
+			opacity: 0;
+		}
 	}
 </style>

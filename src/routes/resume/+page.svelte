@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { reveal } from '$lib/actions/reveal';
 	import Header from '$lib/components/Header.svelte';
 	import ResumeActivity from '$lib/components/ResumeActivity.svelte';
 	import { colors } from '$lib/data/colors';
@@ -17,14 +18,17 @@
 	<Header />
 
 	<main class="flex flex-col items-center pt-8 pb-16">
-		<h1 class="mb-12 text-4xl font-normal sm:text-5xl md:mb-16 md:text-6xl" style={headingStyle}>
+		<h1
+			class="page-title mb-12 text-4xl font-normal sm:text-5xl md:mb-16 md:text-6xl"
+			style={headingStyle}
+		>
 			Resume
 		</h1>
 
 		<div class="w-full px-4 sm:px-8 md:px-12 lg:px-[15%] xl:px-[20%]">
 			<div class="space-y-14 sm:space-y-16 md:space-y-20">
-				{#each activitySections as section}
-					<section>
+				{#each activitySections as section, index (section.title)}
+					<section data-reveal use:reveal={{ delay: Math.min(index * 60, 180) }}>
 						<h2 class="text-3xl font-semibold tracking-tight sm:text-4xl" style={headingStyle}>
 							{section.title}
 						</h2>
@@ -36,7 +40,7 @@
 					</section>
 				{/each}
 
-				<section>
+				<section data-reveal use:reveal>
 					<h2 class="text-3xl font-semibold tracking-tight sm:text-4xl" style={headingStyle}>
 						Skills
 					</h2>

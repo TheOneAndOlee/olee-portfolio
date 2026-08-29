@@ -13,14 +13,15 @@
 	const placeholderStyle = `background-color: var(--color-control-hover-bg); border: 2px solid ${AccentGold};`;
 </script>
 
+<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 <a
 	href={link}
 	target="_blank"
-	rel="noopener noreferrer"
+	rel="external noopener noreferrer"
 	class="contact-button flex w-full flex-col items-center gap-4 p-6 transition-colors"
 	style={buttonStyle}
 >
-	<div class="flex h-24 w-24 items-center justify-center">
+	<div class="contact-icon flex h-24 w-24 items-center justify-center">
 		{#if icon}
 			<img src={icon} alt={name} class="h-full w-full object-contain" />
 		{:else}
@@ -33,5 +34,23 @@
 <style>
 	.contact-button:hover {
 		background-color: var(--contact-hover-bg);
+		box-shadow: 0.45rem 0.45rem 0 color-mix(in srgb, var(--color-accent) 72%, transparent);
+		transform: translate(-0.2rem, -0.2rem);
+	}
+
+	.contact-button {
+		transition:
+			background-color 150ms ease-in-out,
+			box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1),
+			transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.contact-icon {
+		transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.contact-button:hover .contact-icon,
+	.contact-button:focus-visible .contact-icon {
+		transform: translateY(-0.2rem) rotate(-2deg);
 	}
 </style>
