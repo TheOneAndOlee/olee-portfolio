@@ -60,7 +60,7 @@ const projectList = [
 		gameEngine: { name: 'Unreal Engine 5', icon: unrealEngine },
 		detailLines: [
 			'**Role:** Programmer',
-			'**Duration:** 24 Weeks\\nPhase 1 (13 Weeks) | Phase 2 (11 Weeks)',
+			'**Duration:** 24 Weeks\\nPhase 1 (13 Weeks) | Phase 2 (11 Weeks) Phase 3 (Ongoing)',
 			'**Team:** 7 Members\\n3 Programmers, 1 PM, 1 Artist, 1 Designer, 1 Associate Producer'
 		],
 		supportingIcons: [unrealEngine, perforce, jira],

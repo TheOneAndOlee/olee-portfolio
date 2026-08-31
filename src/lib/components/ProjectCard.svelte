@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import { colors } from '$lib/data/colors';
 	import type { GameEngine, ImageVerticalAlign } from '$lib/types';
 
@@ -13,7 +15,7 @@
 
 	let {
 		name = 'Name',
-		link = '#',
+		link = '/',
 		image = '',
 		platforms = [],
 		gameEngine = null,
@@ -74,31 +76,35 @@
 	}
 </script>
 
-<div class="flex w-full flex-col items-start gap-3">
+<div class="project-card flex w-full flex-col items-start gap-3">
 	<div class="flex w-full items-center justify-between">
-		<span class="text-xl">{name}</span>
+		<a href={resolve(link as Pathname)} class="project-title text-xl">
+			<span>{name}</span>
+		</a>
 		{#if platforms && platforms.length > 0}
 			<div class="flex items-center gap-2">
-				{#each platforms as platform}
+				{#each platforms as platform (platform)}
 					<img src={platform} alt="platform" class="invertible-image h-7 w-7 object-contain" />
 				{/each}
 			</div>
 		{/if}
 	</div>
 	<a
-		href={link}
+		href={resolve(link as Pathname)}
 		aria-label={`View ${name} project`}
-		class="relative block aspect-video w-full overflow-hidden border-[3px]"
+		class="project-media relative block aspect-video w-full overflow-hidden border-[3px]"
 		style={mediaFrameStyle}
 	>
 		{#if image}
-			<img
-				src={image}
-				alt={name}
-				onload={handleImageLoad}
-				class={`block h-full w-full object-contain transition-transform duration-200 ease-out ${objectPositionClassByAlign[normalizedImageVerticalAlign]} ${transformOriginClassByAlign[normalizedImageVerticalAlign]}`}
-				style={`transform: scale(${imageScale});`}
-			/>
+			<div class="project-image-wrap h-full w-full">
+				<img
+					src={image}
+					alt={name}
+					onload={handleImageLoad}
+					class={`block h-full w-full object-contain transition-transform duration-200 ease-out ${objectPositionClassByAlign[normalizedImageVerticalAlign]} ${transformOriginClassByAlign[normalizedImageVerticalAlign]}`}
+					style={`transform: scale(${imageScale});`}
+				/>
+			</div>
 		{:else}
 			<div class="h-full w-full" aria-hidden="true"></div>
 		{/if}
@@ -121,18 +127,55 @@
 			</div>
 		{/if}
 	</a>
-	<a href={link} class="more-link self-center border px-8 py-1 text-sm" style={moreButtonStyle}>
-		More
+	<a
+		href={resolve(link as Pathname)}
+		class="more-link self-center border px-8 py-1 text-sm"
+		style={moreButtonStyle}
+	>
+		View project
 	</a>
 </div>
 
 <style>
+	.project-title {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+
+	.project-media {
+		transition:
+			box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1),
+			transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.project-image-wrap {
+		transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.project-media:hover,
+	.project-media:focus-visible {
+		box-shadow: 0.45rem 0.45rem 0 color-mix(in srgb, var(--color-accent) 72%, transparent);
+		transform: translate(-0.22rem, -0.22rem);
+	}
+
+	.project-media:hover .project-image-wrap,
+	.project-media:focus-visible .project-image-wrap {
+		transform: scale(1.025);
+	}
+
 	.more-link {
-		transition: background-color 150ms ease-in-out;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		transition:
+			background-color 150ms ease-in-out,
+			transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	.more-link:hover {
 		background-color: var(--more-hover-bg);
 		color: var(--more-hover-text);
+		transform: translateY(-0.15rem);
 	}
 </style>

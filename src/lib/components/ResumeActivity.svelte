@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { timeline } from '$lib/actions/timeline';
 	import { colors } from '$lib/data/colors';
 	import type { ResumeActivity } from '$lib/types';
 
@@ -32,7 +33,9 @@
 				class="flex h-full w-full flex-col items-start justify-center text-left leading-none font-semibold {activity
 					.logo?.textColorClass ?? 'text-slate-800'}"
 			>
-				{#each activity.logo?.text ?? [activity.organization.slice(0, 2).toUpperCase()] as logoLine}
+				{#each activity.logo?.text ?? [activity.organization
+						.slice(0, 2)
+						.toUpperCase()] as logoLine, index (index)}
 					<span class="text-3xl sm:text-4xl">{logoLine}</span>
 				{/each}
 			</div>
@@ -41,7 +44,9 @@
 				class="flex h-full w-full flex-col items-center justify-center rounded-full border-2 px-2 text-center leading-none font-semibold"
 				style={placeholderLogoStyle}
 			>
-				{#each activity.logo?.text ?? [activity.organization.slice(0, 2).toUpperCase()] as logoLine}
+				{#each activity.logo?.text ?? [activity.organization
+						.slice(0, 2)
+						.toUpperCase()] as logoLine, index (index)}
 					<span class="text-xl sm:text-2xl">{logoLine}</span>
 				{/each}
 			</div>
@@ -66,9 +71,10 @@
 			{/if}
 		</div>
 
-		<ul class="mt-2.5 list-disc space-y-1.5 pl-5 text-sm leading-relaxed sm:text-base">
-			{#each activity.points as point}
-				<li>{@html formatPoint(point)}</li>
+		<ul class="timeline-list mt-3 space-y-2 text-sm leading-relaxed sm:text-base" use:timeline>
+			{#each activity.points as point, index (index)}
+				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+				<li class="timeline-item" data-timeline-item>{@html formatPoint(point)}</li>
 			{/each}
 		</ul>
 	</div>
