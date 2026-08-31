@@ -80,7 +80,6 @@
 	<div class="flex w-full items-center justify-between">
 		<a href={resolve(link as Pathname)} class="project-title text-xl">
 			<span>{name}</span>
-			<span class="title-arrow" aria-hidden="true">↗</span>
 		</a>
 		{#if platforms && platforms.length > 0}
 			<div class="flex items-center gap-2">
@@ -133,7 +132,7 @@
 		class="more-link self-center border px-8 py-1 text-sm"
 		style={moreButtonStyle}
 	>
-		View project <span aria-hidden="true">→</span>
+		View project
 	</a>
 </div>
 
@@ -142,22 +141,6 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
-	}
-
-	.title-arrow {
-		color: var(--color-accent);
-		opacity: 0;
-		transform: translate(-0.25rem, 0.25rem);
-		transition:
-			opacity 220ms ease,
-			transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
-	}
-
-	.project-title:hover .title-arrow,
-	.project-title:focus-visible .title-arrow,
-	.project-card:focus-within .title-arrow {
-		opacity: 1;
-		transform: translate(0, 0);
 	}
 
 	.project-media {

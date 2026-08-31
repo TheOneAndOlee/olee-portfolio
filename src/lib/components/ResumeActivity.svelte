@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { timeline } from '$lib/actions/timeline';
 	import { colors } from '$lib/data/colors';
 	import type { ResumeActivity } from '$lib/types';
 
@@ -70,10 +71,10 @@
 			{/if}
 		</div>
 
-		<ul class="mt-2.5 list-disc space-y-1.5 pl-5 text-sm leading-relaxed sm:text-base">
+		<ul class="timeline-list mt-3 space-y-2 text-sm leading-relaxed sm:text-base" use:timeline>
 			{#each activity.points as point, index (index)}
 				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-				<li>{@html formatPoint(point)}</li>
+				<li class="timeline-item" data-timeline-item>{@html formatPoint(point)}</li>
 			{/each}
 		</ul>
 	</div>

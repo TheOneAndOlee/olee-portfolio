@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
 	import { page } from '$app/state';
-	import AmbientGlow from '$lib/components/AmbientGlow.svelte';
 	import './layout.css';
 	import colors from '$lib/data/colors.json';
 
@@ -65,5 +64,4 @@
 		</style>
 	`}
 </svelte:head>
-<AmbientGlow />
 {@render children()}

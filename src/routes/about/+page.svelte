@@ -23,7 +23,7 @@
 			class="page-title mb-12 text-4xl font-normal sm:text-5xl md:mb-16 md:text-6xl"
 			style={headingStyle}
 		>
-			Literally me fr
+			About Me
 		</h1>
 
 		<div class="w-full px-4 sm:px-8 md:px-12 lg:px-[15%] xl:px-[20%]">
