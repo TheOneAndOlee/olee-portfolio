@@ -24,3 +24,5 @@ node_modules/
 .vs/
 .svelte-kit/
 .vscode/
+
+/.openai

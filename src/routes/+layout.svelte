@@ -30,7 +30,7 @@
 	{#if !isProjectDetail}
 		<meta
 			name="description"
-			content="Gameplay programmer and designer building thoughtful interactive experiences across Unreal Engine, Unity, Godot, and mobile."
+			content="Student gameplay programmer and designer working with Unreal Engine, Unity, and Godot."
 		/>
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="Osmond Lee | Gameplay Programmer & Designer" />
