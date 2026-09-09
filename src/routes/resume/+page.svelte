@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { reveal } from '$lib/actions/reveal';
 	import Header from '$lib/components/Header.svelte';
 	import ResumeActivity from '$lib/components/ResumeActivity.svelte';
@@ -18,12 +19,18 @@
 	<Header />
 
 	<main class="flex flex-col items-center pt-8 pb-16">
-		<h1
-			class="page-title mb-12 text-4xl font-normal sm:text-5xl md:mb-16 md:text-6xl"
-			style={headingStyle}
-		>
-			Resume
-		</h1>
+		<div class="mb-12 flex flex-col items-center md:mb-16">
+			<h1 class="page-title text-4xl font-normal sm:text-5xl md:text-6xl" style={headingStyle}>
+				Resume
+			</h1>
+			<a
+				href={`${base}/Osmond_Lee.pdf`}
+				download="Osmond-Lee-Resume.pdf"
+				class="resume-download mt-7 inline-flex min-h-11 items-center justify-center border px-5 py-2 text-base font-medium"
+			>
+				Download Resume
+			</a>
+		</div>
 
 		<div class="w-full px-4 sm:px-8 md:px-12 lg:px-[15%] xl:px-[20%]">
 			<div class="space-y-14 sm:space-y-16 md:space-y-20">
@@ -59,3 +66,19 @@
 		</div>
 	</main>
 </div>
+
+<style>
+	.resume-download {
+		border-color: var(--color-accent);
+		background-color: var(--color-control-bg);
+		color: var(--color-control-fg);
+		transition:
+			background-color 150ms ease-in-out,
+			transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.resume-download:hover {
+		background-color: var(--color-control-hover-bg);
+		transform: translateY(-0.12rem);
+	}
+</style>

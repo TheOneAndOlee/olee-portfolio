@@ -6,11 +6,12 @@ const gengLogo = '/organizations/Gen.G.png';
 const uiucLogo = '/organizations/UIUC.png';
 
 export const skills = [
-	{ label: 'Languages', items: ['C++', 'C#', 'GDScript', 'Kotlin', 'Python'] },
+	{ label: 'Languages', items: ['Python', 'C++', 'C#', 'GDScript'] },
 	{
-		label: 'Software/Tools',
+		label: 'Tools',
 		items: [
 			'Visual Studio',
+			'Rider',
 			'Git',
 			'GitHub',
 			'Perforce',
@@ -20,7 +21,7 @@ export const skills = [
 			'Blender'
 		]
 	},
-	{ label: 'Game Engines & Frameworks', items: ['Godot', 'Unity', 'Unreal Engine 5', 'Svelte'] }
+	{ label: 'Game Engines', items: ['Godot', 'Unity', 'Unreal Engine 5'] }
 ];
 
 export const activitySections = [
