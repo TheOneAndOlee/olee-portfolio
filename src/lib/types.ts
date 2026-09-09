@@ -1,4 +1,5 @@
 export type ImageVerticalAlign = 'top' | 'middle' | 'bottom';
+export type DetailImageOrientation = 'landscape' | 'portrait';
 
 export interface GameEngine {
 	name: string;
@@ -24,6 +25,7 @@ export interface ProjectData {
 	platforms: string[];
 	image: string;
 	imageVerticalAlign?: ImageVerticalAlign;
+	detailImageOrientation?: DetailImageOrientation;
 	video?: string;
 	videos?: string[];
 	videoCaption?: string;
@@ -42,6 +44,7 @@ export interface Project {
 	platforms: string[];
 	image: string;
 	imageVerticalAlign?: ImageVerticalAlign;
+	detailImageOrientation?: DetailImageOrientation;
 	video?: string;
 	videos?: string[];
 	videoCaption?: string;

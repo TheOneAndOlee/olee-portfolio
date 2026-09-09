@@ -264,6 +264,7 @@
 			<div class="flex min-w-0 flex-col gap-3">
 				<div
 					class="relative w-full overflow-hidden border-2 bg-neutral-200"
+					class:portrait-media-frame={!videoUrl && project.detailImageOrientation === 'portrait'}
 					style={accentBorderStyle}
 				>
 					{#key videoUrl}
@@ -293,7 +294,12 @@
 									{/if}
 								</div>
 							{:else if project.image}
-								<img src={project.image} alt={project.name} class="block h-auto w-full" />
+								<img
+									src={project.image}
+									alt={project.name}
+									class="block h-auto w-full"
+									class:portrait-project-image={project.detailImageOrientation === 'portrait'}
+								/>
 							{:else}
 								<div
 									class="flex min-h-56 items-center justify-center px-4 text-center text-sm opacity-70"
@@ -480,6 +486,20 @@
 
 	.media-content {
 		animation: media-in 280ms ease-out both;
+	}
+
+	.portrait-media-frame {
+		width: fit-content;
+		max-width: 100%;
+		margin-inline: auto;
+		background: transparent;
+	}
+
+	.portrait-project-image {
+		width: auto;
+		max-width: 100%;
+		max-height: 24rem;
+		object-fit: contain;
 	}
 
 	@keyframes media-in {

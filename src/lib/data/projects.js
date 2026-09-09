@@ -116,6 +116,7 @@ const projectList = [
 		platforms: [android],
 		image: facThumbnail,
 		imageVerticalAlign: 'top',
+		detailImageOrientation: 'portrait',
 		video: '',
 		gameEngine: { name: 'Android Studio', icon: androidStudio },
 		// description: '',
