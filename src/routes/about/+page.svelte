@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
 	import Header from '$lib/components/Header.svelte';
-	import InterestBento from '$lib/components/InterestBento.svelte';
 	import { colors } from '$lib/data/colors';
-	import { interestGrid, interests } from '$lib/data/interests';
 
 	const headshot = '/betterHeadshot.webp';
 
@@ -60,13 +58,23 @@
 						</p>
 					</div>
 				</div>
-			</section>
 
-			<section class="mt-12 sm:mt-16" aria-labelledby="interests-heading">
-				<h2 id="interests-heading" class="mb-6 text-2xl font-normal sm:text-3xl">
-					Hobbies, Interests, and Other Fun Things!
-				</h2>
-				<InterestBento items={interests} settings={interestGrid} />
+				<div class="mt-6 space-y-4 text-base leading-relaxed sm:text-xl">
+					<p>
+						I'm personally interested in a lot of things, but some of my main interests as of right
+						now are:
+					</p>
+					<ul class="list-disc space-y-1 pl-6">
+						<li>E-Sports (Valorant, CS2, Overwatch, Smash, etc.)</li>
+						<li>Player-centered design in multiplayer titles</li>
+						<li>
+							Watching youtube videos about the above two (Coach Ocie, Shounic, Marblr, Sliggy,
+							Arch, etc.)
+						</li>
+						<li>Cooking!</li>
+						<!-- <li>MINECRAFT AND POKEMON RAHHHHHH</li> -->
+					</ul>
+				</div>
 			</section>
 
 			<!-- <p class="mt-6 text-base">Fun Fact: I drew the favicon myself! It's supposed to be a computer mouse, but as you can probably see, I'm not very good at art T_T</p> -->
